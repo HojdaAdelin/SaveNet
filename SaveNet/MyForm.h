@@ -107,6 +107,7 @@ namespace SaveNet {
 			this->decryptBtn->TabIndex = 3;
 			this->decryptBtn->Text = L"Decrypt";
 			this->decryptBtn->UseVisualStyleBackColor = true;
+			this->decryptBtn->Click += gcnew System::EventHandler(this, &MyForm::decryptBtn_Click);
 			// 
 			// MyForm
 			// 
@@ -131,6 +132,13 @@ namespace SaveNet {
 		String^ file_name = inputMain->Text;
 		std::string file_name_convert = ConvertString(file_name);
 		EncryptFileNet(file_name_convert);
+
+	}
+	private: System::Void decryptBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ file_name = inputMain->Text;
+		std::string file_name_convert = ConvertString(file_name);
+		DecryptFileNet(file_name_convert);
 
 	}
 };

@@ -1,4 +1,8 @@
 #pragma once
+#include "src/Include.h"
+#include <string>
+#include <iostream>
+
 
 namespace SaveNet {
 
@@ -90,6 +94,7 @@ namespace SaveNet {
 			this->encryptBtn->TabIndex = 2;
 			this->encryptBtn->Text = L"Encrypt";
 			this->encryptBtn->UseVisualStyleBackColor = true;
+			this->encryptBtn->Click += gcnew System::EventHandler(this, &MyForm::encryptBtn_Click);
 			// 
 			// decryptBtn
 			// 
@@ -121,5 +126,12 @@ namespace SaveNet {
 
 		}
 #pragma endregion
-	};
+	private: System::Void encryptBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ file_name = inputMain->Text;
+		std::string file_name_convert = ConvertString(file_name);
+		EncryptFileNet(file_name_convert);
+
+	}
+};
 }

@@ -6,7 +6,8 @@
 #include <stdio.h>
 
 void EncryptFileNet(std::string filename) {
-
+		
+	bool fresult, sresult;
 	char xr;
 	std::fstream fin, fout;
 
@@ -15,20 +16,24 @@ void EncryptFileNet(std::string filename) {
 	if (!fin) {
 
 		MessageBox::Show("Error: File can't be opened!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
+		return;
 	}
+	fresult = true;
 
 	fout.open("other.txt", std::fstream::out);
 
 	if (!fout) {
 
 		MessageBox::Show("Error: Can't write to the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		fin.close();
+		return;
 
 	}
+	sresult = true;
 
 	while (fin >> std::noskipws >> xr) {
 
-		xr = xr + 100;
+		xr = xr + (1000 * 8 + 45550 + 880 + 2222);
 		fout << xr;
 
 	}
@@ -48,6 +53,10 @@ void EncryptFileNet(std::string filename) {
 	fin.close();
 	fout.close();
 
-	MessageBox::Show("File encrypted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	if (fresult == true && sresult == true) {
+
+		MessageBox::Show("File encrypted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
 
 }

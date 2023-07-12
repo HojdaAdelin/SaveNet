@@ -47,6 +47,9 @@ namespace SaveNet {
 	private: System::Windows::Forms::Button^ decryptBtn;
 	private: System::Windows::Forms::Button^ viewBtn;
 	private: System::Windows::Forms::TextBox^ secondText;
+	private: System::Windows::Forms::Button^ writeBtn;
+	private: System::Windows::Forms::CheckBox^ checkWrite;
+
 
 
 	private:
@@ -68,6 +71,8 @@ namespace SaveNet {
 			this->decryptBtn = (gcnew System::Windows::Forms::Button());
 			this->viewBtn = (gcnew System::Windows::Forms::Button());
 			this->secondText = (gcnew System::Windows::Forms::TextBox());
+			this->writeBtn = (gcnew System::Windows::Forms::Button());
+			this->checkWrite = (gcnew System::Windows::Forms::CheckBox());
 			this->SuspendLayout();
 			// 
 			// inputMain
@@ -137,14 +142,43 @@ namespace SaveNet {
 			this->secondText->Multiline = true;
 			this->secondText->Name = L"secondText";
 			this->secondText->ReadOnly = true;
-			this->secondText->Size = System::Drawing::Size(891, 426);
+			this->secondText->Size = System::Drawing::Size(891, 363);
 			this->secondText->TabIndex = 5;
+			// 
+			// writeBtn
+			// 
+			this->writeBtn->Enabled = false;
+			this->writeBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->writeBtn->Location = System::Drawing::Point(748, 576);
+			this->writeBtn->Name = L"writeBtn";
+			this->writeBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->writeBtn->Size = System::Drawing::Size(289, 74);
+			this->writeBtn->TabIndex = 6;
+			this->writeBtn->Text = L"Write";
+			this->writeBtn->UseVisualStyleBackColor = true;
+			this->writeBtn->Click += gcnew System::EventHandler(this, &MyForm::writeBtn_Click);
+			// 
+			// checkWrite
+			// 
+			this->checkWrite->AutoSize = true;
+			this->checkWrite->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkWrite->Location = System::Drawing::Point(60, 595);
+			this->checkWrite->Name = L"checkWrite";
+			this->checkWrite->Size = System::Drawing::Size(283, 55);
+			this->checkWrite->TabIndex = 7;
+			this->checkWrite->Text = L"Write to text";
+			this->checkWrite->UseVisualStyleBackColor = true;
+			this->checkWrite->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkWrite_CheckedChanged);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1097, 781);
+			this->Controls->Add(this->checkWrite);
+			this->Controls->Add(this->writeBtn);
 			this->Controls->Add(this->secondText);
 			this->Controls->Add(this->viewBtn);
 			this->Controls->Add(this->decryptBtn);
@@ -194,5 +228,47 @@ namespace SaveNet {
 		secondText->Text = gcnew String(fileCount.c_str());
 
 	}
+private: System::Void checkWrite_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	if (checkWrite->Checked) {
+
+		writeBtn->Enabled = true;
+		secondText->ReadOnly = false;
+		secondText->Clear();
+		
+	}
+	else {
+
+		writeBtn->Enabled = false;
+		secondText->ReadOnly = true;
+		
+	}
+
+}
+private: System::Void writeBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ getTextFile = inputMain->Text;
+	String^ getContentToWrite = secondText->Text;
+	std::string getTextFile_convert = ConvertString(getTextFile);
+	std::string getContentToWrite_convert = ConvertString(getContentToWrite);
+
+	if (String::IsNullOrEmpty(getTextFile)) {
+
+		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+	else if (String::IsNullOrEmpty(getContentToWrite)) {
+
+		MessageBox::Show("Enter some text in 2nd textbox to process!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+	else {
+
+		WriteToTextFile(getTextFile_convert, getContentToWrite_convert);
+		MessageBox::Show("Text writed!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+
+}
 };
 }

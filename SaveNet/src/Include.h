@@ -12,3 +12,4 @@ std::string ConvertString(String^ str);
 void EncryptFileNet(std::string filename);
 void DecryptFileNet(std::string filenameW);
 void WriteToTextFile(std::string filenameWT, std::string contenttofile);
+void ClearFileContent(std::string filenameC);

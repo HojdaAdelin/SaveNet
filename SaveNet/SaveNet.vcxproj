@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="src\ClearFile.cpp" />
     <ClCompile Include="src\Decrypt.cpp" />
     <ClCompile Include="src\Encrypt.cpp" />
     <ClCompile Include="src\StrConvert.cpp" />

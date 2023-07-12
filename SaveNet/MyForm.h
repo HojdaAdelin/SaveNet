@@ -49,6 +49,7 @@ namespace SaveNet {
 	private: System::Windows::Forms::TextBox^ secondText;
 	private: System::Windows::Forms::Button^ writeBtn;
 	private: System::Windows::Forms::CheckBox^ checkWrite;
+	private: System::Windows::Forms::Button^ clearBtn;
 
 
 
@@ -73,6 +74,7 @@ namespace SaveNet {
 			this->secondText = (gcnew System::Windows::Forms::TextBox());
 			this->writeBtn = (gcnew System::Windows::Forms::Button());
 			this->checkWrite = (gcnew System::Windows::Forms::CheckBox());
+			this->clearBtn = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// inputMain
@@ -150,7 +152,7 @@ namespace SaveNet {
 			this->writeBtn->Enabled = false;
 			this->writeBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->writeBtn->Location = System::Drawing::Point(748, 576);
+			this->writeBtn->Location = System::Drawing::Point(412, 576);
 			this->writeBtn->Name = L"writeBtn";
 			this->writeBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->writeBtn->Size = System::Drawing::Size(289, 74);
@@ -172,11 +174,25 @@ namespace SaveNet {
 			this->checkWrite->UseVisualStyleBackColor = true;
 			this->checkWrite->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkWrite_CheckedChanged);
 			// 
+			// clearBtn
+			// 
+			this->clearBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->clearBtn->Location = System::Drawing::Point(748, 576);
+			this->clearBtn->Name = L"clearBtn";
+			this->clearBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->clearBtn->Size = System::Drawing::Size(289, 74);
+			this->clearBtn->TabIndex = 8;
+			this->clearBtn->Text = L"Clear Text";
+			this->clearBtn->UseVisualStyleBackColor = true;
+			this->clearBtn->Click += gcnew System::EventHandler(this, &MyForm::clearBtn_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1097, 781);
+			this->Controls->Add(this->clearBtn);
 			this->Controls->Add(this->checkWrite);
 			this->Controls->Add(this->writeBtn);
 			this->Controls->Add(this->secondText);
@@ -266,6 +282,36 @@ private: System::Void writeBtn_Click(System::Object^ sender, System::EventArgs^ 
 
 		WriteToTextFile(getTextFile_convert, getContentToWrite_convert);
 		MessageBox::Show("Text writed!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+
+}
+private: System::Void clearBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ filename = inputMain->Text;
+	std::string filename_convert = ConvertString(filename);
+
+	if (String::IsNullOrEmpty(filename)) {
+
+		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+	else {
+
+		System::Windows::Forms::DialogResult result = MessageBox::Show(
+			"Are you sure you want to clear the file content?",
+			"SaveNet",
+			MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question);
+
+		if (result == System::Windows::Forms::DialogResult::Yes) {
+
+			ClearFileContent(filename_convert);
+
+		}
+		else {
+
+		}
 
 	}
 

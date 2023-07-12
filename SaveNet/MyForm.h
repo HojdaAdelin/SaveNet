@@ -50,6 +50,9 @@ namespace SaveNet {
 	private: System::Windows::Forms::Button^ writeBtn;
 	private: System::Windows::Forms::CheckBox^ checkWrite;
 	private: System::Windows::Forms::Button^ clearBtn;
+	private: System::Windows::Forms::Button^ generateBtn;
+	private: System::Windows::Forms::Button^ logBtn;
+	private: System::Windows::Forms::Button^ srcBtn;
 
 
 
@@ -75,6 +78,9 @@ namespace SaveNet {
 			this->writeBtn = (gcnew System::Windows::Forms::Button());
 			this->checkWrite = (gcnew System::Windows::Forms::CheckBox());
 			this->clearBtn = (gcnew System::Windows::Forms::Button());
+			this->generateBtn = (gcnew System::Windows::Forms::Button());
+			this->logBtn = (gcnew System::Windows::Forms::Button());
+			this->srcBtn = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// inputMain
@@ -187,11 +193,51 @@ namespace SaveNet {
 			this->clearBtn->UseVisualStyleBackColor = true;
 			this->clearBtn->Click += gcnew System::EventHandler(this, &MyForm::clearBtn_Click);
 			// 
+			// generateBtn
+			// 
+			this->generateBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->generateBtn->Location = System::Drawing::Point(60, 766);
+			this->generateBtn->Name = L"generateBtn";
+			this->generateBtn->Size = System::Drawing::Size(306, 74);
+			this->generateBtn->TabIndex = 9;
+			this->generateBtn->Text = L"Generate file";
+			this->generateBtn->UseVisualStyleBackColor = true;
+			// 
+			// logBtn
+			// 
+			this->logBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->logBtn->Location = System::Drawing::Point(412, 766);
+			this->logBtn->Name = L"logBtn";
+			this->logBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->logBtn->Size = System::Drawing::Size(289, 74);
+			this->logBtn->TabIndex = 10;
+			this->logBtn->Text = L"Change log";
+			this->logBtn->UseVisualStyleBackColor = true;
+			this->logBtn->Click += gcnew System::EventHandler(this, &MyForm::logBtn_Click);
+			// 
+			// srcBtn
+			// 
+			this->srcBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->srcBtn->Location = System::Drawing::Point(748, 766);
+			this->srcBtn->Name = L"srcBtn";
+			this->srcBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->srcBtn->Size = System::Drawing::Size(289, 74);
+			this->srcBtn->TabIndex = 11;
+			this->srcBtn->Text = L"Source";
+			this->srcBtn->UseVisualStyleBackColor = true;
+			this->srcBtn->Click += gcnew System::EventHandler(this, &MyForm::srcBtn_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1097, 781);
+			this->ClientSize = System::Drawing::Size(1097, 864);
+			this->Controls->Add(this->srcBtn);
+			this->Controls->Add(this->logBtn);
+			this->Controls->Add(this->generateBtn);
 			this->Controls->Add(this->clearBtn);
 			this->Controls->Add(this->checkWrite);
 			this->Controls->Add(this->writeBtn);
@@ -201,8 +247,8 @@ namespace SaveNet {
 			this->Controls->Add(this->encryptBtn);
 			this->Controls->Add(this->frontText);
 			this->Controls->Add(this->inputMain);
-			this->MaximumSize = System::Drawing::Size(1123, 852);
-			this->MinimumSize = System::Drawing::Size(1123, 852);
+			this->MaximumSize = System::Drawing::Size(1123, 935);
+			this->MinimumSize = System::Drawing::Size(1123, 935);
 			this->Name = L"MyForm";
 			this->Text = L"SaveNet";
 			this->ResumeLayout(false);
@@ -226,6 +272,7 @@ namespace SaveNet {
 	}
 	private: System::Void viewBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
+		secondText->Clear();
 		String^ file_name = inputMain->Text;
 		std::string file_name_convert = ConvertString(file_name);
 		std::string getLineFromFile;
@@ -314,6 +361,16 @@ private: System::Void clearBtn_Click(System::Object^ sender, System::EventArgs^ 
 		}
 
 	}
+
+}
+private: System::Void logBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	ChangeLog();
+
+}
+private: System::Void srcBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	srcOpen();
 
 }
 };

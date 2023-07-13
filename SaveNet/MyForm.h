@@ -53,6 +53,12 @@ namespace SaveNet {
 	private: System::Windows::Forms::Button^ generateBtn;
 	private: System::Windows::Forms::Button^ logBtn;
 	private: System::Windows::Forms::Button^ srcBtn;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ shortcutsMenu;
+	private: System::Windows::Forms::ToolStripMenuItem^ decryptViewSub;
+	private: System::Windows::Forms::ToolStripMenuItem^ encryptViewSub;
+	private: System::Windows::Forms::ToolStripMenuItem^ clearYesSub;
+	private: System::Windows::Forms::ToolStripMenuItem^ clearWriteOnSub;
 
 
 
@@ -82,13 +88,20 @@ namespace SaveNet {
 			this->generateBtn = (gcnew System::Windows::Forms::Button());
 			this->logBtn = (gcnew System::Windows::Forms::Button());
 			this->srcBtn = (gcnew System::Windows::Forms::Button());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->shortcutsMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->decryptViewSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->encryptViewSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->clearYesSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->clearWriteOnSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// inputMain
 			// 
 			this->inputMain->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->inputMain->Location = System::Drawing::Point(97, 75);
+			this->inputMain->Location = System::Drawing::Point(107, 132);
 			this->inputMain->Multiline = true;
 			this->inputMain->Name = L"inputMain";
 			this->inputMain->Size = System::Drawing::Size(891, 79);
@@ -99,7 +112,7 @@ namespace SaveNet {
 			this->frontText->AutoSize = true;
 			this->frontText->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->frontText->Location = System::Drawing::Point(90, 30);
+			this->frontText->Location = System::Drawing::Point(100, 87);
 			this->frontText->Name = L"frontText";
 			this->frontText->Size = System::Drawing::Size(339, 42);
 			this->frontText->TabIndex = 1;
@@ -109,7 +122,7 @@ namespace SaveNet {
 			// 
 			this->encryptBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->encryptBtn->Location = System::Drawing::Point(60, 672);
+			this->encryptBtn->Location = System::Drawing::Point(60, 713);
 			this->encryptBtn->Name = L"encryptBtn";
 			this->encryptBtn->Size = System::Drawing::Size(306, 74);
 			this->encryptBtn->TabIndex = 2;
@@ -121,7 +134,7 @@ namespace SaveNet {
 			// 
 			this->decryptBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->decryptBtn->Location = System::Drawing::Point(412, 672);
+			this->decryptBtn->Location = System::Drawing::Point(412, 713);
 			this->decryptBtn->Name = L"decryptBtn";
 			this->decryptBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->decryptBtn->Size = System::Drawing::Size(289, 74);
@@ -134,7 +147,7 @@ namespace SaveNet {
 			// 
 			this->viewBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->viewBtn->Location = System::Drawing::Point(748, 672);
+			this->viewBtn->Location = System::Drawing::Point(748, 713);
 			this->viewBtn->Name = L"viewBtn";
 			this->viewBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->viewBtn->Size = System::Drawing::Size(289, 74);
@@ -147,7 +160,7 @@ namespace SaveNet {
 			// 
 			this->secondText->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->secondText->Location = System::Drawing::Point(97, 188);
+			this->secondText->Location = System::Drawing::Point(107, 248);
 			this->secondText->Multiline = true;
 			this->secondText->Name = L"secondText";
 			this->secondText->ReadOnly = true;
@@ -159,7 +172,7 @@ namespace SaveNet {
 			this->writeBtn->Enabled = false;
 			this->writeBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->writeBtn->Location = System::Drawing::Point(412, 576);
+			this->writeBtn->Location = System::Drawing::Point(412, 633);
 			this->writeBtn->Name = L"writeBtn";
 			this->writeBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->writeBtn->Size = System::Drawing::Size(289, 74);
@@ -173,7 +186,7 @@ namespace SaveNet {
 			this->checkWrite->AutoSize = true;
 			this->checkWrite->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->checkWrite->Location = System::Drawing::Point(60, 595);
+			this->checkWrite->Location = System::Drawing::Point(60, 652);
 			this->checkWrite->Name = L"checkWrite";
 			this->checkWrite->Size = System::Drawing::Size(283, 55);
 			this->checkWrite->TabIndex = 7;
@@ -185,7 +198,7 @@ namespace SaveNet {
 			// 
 			this->clearBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->clearBtn->Location = System::Drawing::Point(748, 576);
+			this->clearBtn->Location = System::Drawing::Point(748, 633);
 			this->clearBtn->Name = L"clearBtn";
 			this->clearBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->clearBtn->Size = System::Drawing::Size(289, 74);
@@ -198,7 +211,7 @@ namespace SaveNet {
 			// 
 			this->generateBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->generateBtn->Location = System::Drawing::Point(60, 766);
+			this->generateBtn->Location = System::Drawing::Point(60, 793);
 			this->generateBtn->Name = L"generateBtn";
 			this->generateBtn->Size = System::Drawing::Size(306, 74);
 			this->generateBtn->TabIndex = 9;
@@ -210,7 +223,7 @@ namespace SaveNet {
 			// 
 			this->logBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->logBtn->Location = System::Drawing::Point(412, 766);
+			this->logBtn->Location = System::Drawing::Point(412, 793);
 			this->logBtn->Name = L"logBtn";
 			this->logBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->logBtn->Size = System::Drawing::Size(289, 74);
@@ -223,7 +236,7 @@ namespace SaveNet {
 			// 
 			this->srcBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->srcBtn->Location = System::Drawing::Point(748, 766);
+			this->srcBtn->Location = System::Drawing::Point(748, 793);
 			this->srcBtn->Name = L"srcBtn";
 			this->srcBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->srcBtn->Size = System::Drawing::Size(289, 74);
@@ -232,11 +245,62 @@ namespace SaveNet {
 			this->srcBtn->UseVisualStyleBackColor = true;
 			this->srcBtn->Click += gcnew System::EventHandler(this, &MyForm::srcBtn_Click);
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->shortcutsMenu });
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1097, 53);
+			this->menuStrip1->TabIndex = 12;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// shortcutsMenu
+			// 
+			this->shortcutsMenu->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->decryptViewSub,
+					this->encryptViewSub, this->clearYesSub, this->clearWriteOnSub
+			});
+			this->shortcutsMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->shortcutsMenu->Name = L"shortcutsMenu";
+			this->shortcutsMenu->Size = System::Drawing::Size(174, 49);
+			this->shortcutsMenu->Text = L"Shortcuts";
+			// 
+			// decryptViewSub
+			// 
+			this->decryptViewSub->Name = L"decryptViewSub";
+			this->decryptViewSub->Size = System::Drawing::Size(399, 54);
+			this->decryptViewSub->Text = L"Decrypt + View";
+			this->decryptViewSub->Click += gcnew System::EventHandler(this, &MyForm::decryptViewSub_Click);
+			// 
+			// encryptViewSub
+			// 
+			this->encryptViewSub->Name = L"encryptViewSub";
+			this->encryptViewSub->Size = System::Drawing::Size(399, 54);
+			this->encryptViewSub->Text = L"Encrypt + View";
+			this->encryptViewSub->Click += gcnew System::EventHandler(this, &MyForm::encryptViewSub_Click);
+			// 
+			// clearYesSub
+			// 
+			this->clearYesSub->Name = L"clearYesSub";
+			this->clearYesSub->Size = System::Drawing::Size(399, 54);
+			this->clearYesSub->Text = L"Clear + Yes";
+			this->clearYesSub->Click += gcnew System::EventHandler(this, &MyForm::clearYesSub_Click);
+			// 
+			// clearWriteOnSub
+			// 
+			this->clearWriteOnSub->Name = L"clearWriteOnSub";
+			this->clearWriteOnSub->Size = System::Drawing::Size(399, 54);
+			this->clearWriteOnSub->Text = L"Clear + Write On";
+			this->clearWriteOnSub->Click += gcnew System::EventHandler(this, &MyForm::clearWriteOnSub_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1097, 869);
+			this->ClientSize = System::Drawing::Size(1097, 879);
 			this->Controls->Add(this->srcBtn);
 			this->Controls->Add(this->logBtn);
 			this->Controls->Add(this->generateBtn);
@@ -249,11 +313,15 @@ namespace SaveNet {
 			this->Controls->Add(this->encryptBtn);
 			this->Controls->Add(this->frontText);
 			this->Controls->Add(this->inputMain);
+			this->Controls->Add(this->menuStrip1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->MaximumSize = System::Drawing::Size(1123, 940);
-			this->MinimumSize = System::Drawing::Size(1123, 940);
+			this->MainMenuStrip = this->menuStrip1;
+			this->MaximumSize = System::Drawing::Size(1123, 950);
+			this->MinimumSize = System::Drawing::Size(1123, 950);
 			this->Name = L"MyForm";
 			this->Text = L"SaveNet";
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -380,6 +448,100 @@ private: System::Void generateBtn_Click(System::Object^ sender, System::EventArg
 
 	inputMain->Text = gcnew String(GenerateNameFile().c_str());
 
+}
+private: System::Void decryptViewSub_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	// 1
+
+	String^ file_name = inputMain->Text;
+	std::string file_name_convert = ConvertString(file_name);
+	DecryptFileNet(file_name_convert);
+
+	// 2
+
+	secondText->Clear();
+	String^ file_name2 = inputMain->Text;
+	std::string file_name_convert2 = ConvertString(file_name2);
+	std::string getLineFromFile;
+	std::string fileCount;
+
+	std::ifstream read(file_name_convert2);
+
+	while (std::getline(read, getLineFromFile)) {
+
+		fileCount += getLineFromFile + "\r\n";
+
+	}
+
+	read.close();
+
+	secondText->Text = gcnew String(fileCount.c_str());
+
+}
+private: System::Void encryptViewSub_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	// 1
+
+	String^ file_name = inputMain->Text;
+	std::string file_name_convert = ConvertString(file_name);
+	EncryptFileNet(file_name_convert);
+
+	// 2
+
+	secondText->Clear();
+	String^ file_name2 = inputMain->Text;
+	std::string file_name_convert2 = ConvertString(file_name2);
+	std::string getLineFromFile;
+	std::string fileCount;
+
+	std::ifstream read(file_name_convert2);
+
+	while (std::getline(read, getLineFromFile)) {
+
+		fileCount += getLineFromFile + "\r\n";
+
+	}
+
+	read.close();
+
+	secondText->Text = gcnew String(fileCount.c_str());
+
+}
+private: System::Void clearYesSub_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ filename = inputMain->Text;
+	std::string filename_convert = ConvertString(filename);
+
+	if (String::IsNullOrEmpty(filename)) {
+
+		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+	else {
+
+		ClearFileContent(filename_convert);
+
+	}
+	secondText->Clear();
+}
+private: System::Void clearWriteOnSub_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ filename = inputMain->Text;
+	std::string filename_convert = ConvertString(filename);
+
+	if (String::IsNullOrEmpty(filename)) {
+
+		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+	else {
+
+		ClearFileContent(filename_convert);
+
+	}
+
+	checkWrite->Checked = true;
+	secondText->Clear();
 }
 };
 }

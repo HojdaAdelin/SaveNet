@@ -51,14 +51,18 @@ namespace SaveNet {
 	private: System::Windows::Forms::CheckBox^ checkWrite;
 	private: System::Windows::Forms::Button^ clearBtn;
 	private: System::Windows::Forms::Button^ generateBtn;
-	private: System::Windows::Forms::Button^ logBtn;
-	private: System::Windows::Forms::Button^ srcBtn;
+
+
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ shortcutsMenu;
 	private: System::Windows::Forms::ToolStripMenuItem^ decryptViewSub;
 	private: System::Windows::Forms::ToolStripMenuItem^ encryptViewSub;
 	private: System::Windows::Forms::ToolStripMenuItem^ clearYesSub;
 	private: System::Windows::Forms::ToolStripMenuItem^ clearWriteOnSub;
+	private: System::Windows::Forms::ToolStripMenuItem^ homeToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ changeLogSub;
+	private: System::Windows::Forms::ToolStripMenuItem^ sourceToolSub;
+	private: System::Windows::Forms::Button^ deleteBtn;
 
 
 
@@ -86,14 +90,16 @@ namespace SaveNet {
 			this->checkWrite = (gcnew System::Windows::Forms::CheckBox());
 			this->clearBtn = (gcnew System::Windows::Forms::Button());
 			this->generateBtn = (gcnew System::Windows::Forms::Button());
-			this->logBtn = (gcnew System::Windows::Forms::Button());
-			this->srcBtn = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->homeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->changeLogSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->sourceToolSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->shortcutsMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->decryptViewSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->encryptViewSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->clearYesSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->clearWriteOnSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->deleteBtn = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -219,42 +225,45 @@ namespace SaveNet {
 			this->generateBtn->UseVisualStyleBackColor = true;
 			this->generateBtn->Click += gcnew System::EventHandler(this, &MyForm::generateBtn_Click);
 			// 
-			// logBtn
-			// 
-			this->logBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->logBtn->Location = System::Drawing::Point(412, 793);
-			this->logBtn->Name = L"logBtn";
-			this->logBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->logBtn->Size = System::Drawing::Size(289, 74);
-			this->logBtn->TabIndex = 10;
-			this->logBtn->Text = L"Change log";
-			this->logBtn->UseVisualStyleBackColor = true;
-			this->logBtn->Click += gcnew System::EventHandler(this, &MyForm::logBtn_Click);
-			// 
-			// srcBtn
-			// 
-			this->srcBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->srcBtn->Location = System::Drawing::Point(748, 793);
-			this->srcBtn->Name = L"srcBtn";
-			this->srcBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->srcBtn->Size = System::Drawing::Size(289, 74);
-			this->srcBtn->TabIndex = 11;
-			this->srcBtn->Text = L"Source";
-			this->srcBtn->UseVisualStyleBackColor = true;
-			this->srcBtn->Click += gcnew System::EventHandler(this, &MyForm::srcBtn_Click);
-			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->shortcutsMenu });
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->homeToolStripMenuItem,
+					this->shortcutsMenu
+			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Size = System::Drawing::Size(1097, 53);
 			this->menuStrip1->TabIndex = 12;
 			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// homeToolStripMenuItem
+			// 
+			this->homeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->changeLogSub,
+					this->sourceToolSub
+			});
+			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->homeToolStripMenuItem->Name = L"homeToolStripMenuItem";
+			this->homeToolStripMenuItem->Size = System::Drawing::Size(127, 49);
+			this->homeToolStripMenuItem->Text = L"Home";
+			// 
+			// changeLogSub
+			// 
+			this->changeLogSub->Name = L"changeLogSub";
+			this->changeLogSub->Size = System::Drawing::Size(359, 54);
+			this->changeLogSub->Text = L"Change log";
+			this->changeLogSub->Click += gcnew System::EventHandler(this, &MyForm::changeLogSub_Click);
+			// 
+			// sourceToolSub
+			// 
+			this->sourceToolSub->Name = L"sourceToolSub";
+			this->sourceToolSub->Size = System::Drawing::Size(359, 54);
+			this->sourceToolSub->Text = L"Source";
+			this->sourceToolSub->Click += gcnew System::EventHandler(this, &MyForm::sourceToolSub_Click);
 			// 
 			// shortcutsMenu
 			// 
@@ -296,13 +305,26 @@ namespace SaveNet {
 			this->clearWriteOnSub->Text = L"Clear + Write On";
 			this->clearWriteOnSub->Click += gcnew System::EventHandler(this, &MyForm::clearWriteOnSub_Click);
 			// 
+			// deleteBtn
+			// 
+			this->deleteBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->deleteBtn->Location = System::Drawing::Point(412, 793);
+			this->deleteBtn->Name = L"deleteBtn";
+			this->deleteBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->deleteBtn->Size = System::Drawing::Size(289, 74);
+			this->deleteBtn->TabIndex = 13;
+			this->deleteBtn->Text = L"Delete file";
+			this->deleteBtn->UseVisualStyleBackColor = true;
+			this->deleteBtn->Click += gcnew System::EventHandler(this, &MyForm::deleteBtn_Click);
+			
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1097, 879);
-			this->Controls->Add(this->srcBtn);
-			this->Controls->Add(this->logBtn);
+			this->Controls->Add(this->deleteBtn);
 			this->Controls->Add(this->generateBtn);
 			this->Controls->Add(this->clearBtn);
 			this->Controls->Add(this->checkWrite);
@@ -542,6 +564,46 @@ private: System::Void clearWriteOnSub_Click(System::Object^ sender, System::Even
 
 	checkWrite->Checked = true;
 	secondText->Clear();
+}
+private: System::Void changeLogSub_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	ChangeLog();
+
+}
+private: System::Void sourceToolSub_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	srcOpen();
+
+}
+private: System::Void deleteBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ filename = inputMain->Text;
+	std::string filename_convert = ConvertString(filename);
+
+	if (String::IsNullOrEmpty(filename)) {
+
+		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+	else {
+
+		System::Windows::Forms::DialogResult result = MessageBox::Show(
+			"Are you sure you want to delete the file?",
+			"SaveNet",
+			MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question);
+
+		if (result == System::Windows::Forms::DialogResult::Yes) {
+
+			remove(filename_convert.c_str());
+
+		}
+		else {
+
+		}
+
+	}
+
 }
 };
 }

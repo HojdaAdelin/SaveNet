@@ -69,6 +69,7 @@ namespace SaveNet {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->inputMain = (gcnew System::Windows::Forms::TextBox());
 			this->frontText = (gcnew System::Windows::Forms::Label());
 			this->encryptBtn = (gcnew System::Windows::Forms::Button());
@@ -248,6 +249,7 @@ namespace SaveNet {
 			this->Controls->Add(this->encryptBtn);
 			this->Controls->Add(this->frontText);
 			this->Controls->Add(this->inputMain);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(1123, 940);
 			this->MinimumSize = System::Drawing::Size(1123, 940);
 			this->Name = L"MyForm";

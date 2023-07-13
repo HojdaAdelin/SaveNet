@@ -203,6 +203,7 @@ namespace SaveNet {
 			this->generateBtn->TabIndex = 9;
 			this->generateBtn->Text = L"Generate file";
 			this->generateBtn->UseVisualStyleBackColor = true;
+			this->generateBtn->Click += gcnew System::EventHandler(this, &MyForm::generateBtn_Click);
 			// 
 			// logBtn
 			// 
@@ -234,7 +235,7 @@ namespace SaveNet {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1097, 864);
+			this->ClientSize = System::Drawing::Size(1097, 869);
 			this->Controls->Add(this->srcBtn);
 			this->Controls->Add(this->logBtn);
 			this->Controls->Add(this->generateBtn);
@@ -247,8 +248,8 @@ namespace SaveNet {
 			this->Controls->Add(this->encryptBtn);
 			this->Controls->Add(this->frontText);
 			this->Controls->Add(this->inputMain);
-			this->MaximumSize = System::Drawing::Size(1123, 935);
-			this->MinimumSize = System::Drawing::Size(1123, 935);
+			this->MaximumSize = System::Drawing::Size(1123, 940);
+			this->MinimumSize = System::Drawing::Size(1123, 940);
 			this->Name = L"MyForm";
 			this->Text = L"SaveNet";
 			this->ResumeLayout(false);
@@ -371,6 +372,11 @@ private: System::Void logBtn_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void srcBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	srcOpen();
+
+}
+private: System::Void generateBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	inputMain->Text = gcnew String(GenerateNameFile().c_str());
 
 }
 };

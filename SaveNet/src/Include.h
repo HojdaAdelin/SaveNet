@@ -15,3 +15,4 @@ void WriteToTextFile(std::string filenameWT, std::string contenttofile);
 void ClearFileContent(std::string filenameC);
 void ChangeLog();
 void srcOpen();
+std::string GenerateNameFile();

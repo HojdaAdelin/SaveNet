@@ -16,3 +16,4 @@ void ClearFileContent(std::string filenameC);
 void ChangeLog();
 void srcOpen();
 std::string GenerateNameFile();
+void UseExtension(std::string filenameUE);

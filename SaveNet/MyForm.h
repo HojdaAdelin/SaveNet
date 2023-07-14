@@ -63,6 +63,7 @@ namespace SaveNet {
 	private: System::Windows::Forms::ToolStripMenuItem^ changeLogSub;
 	private: System::Windows::Forms::ToolStripMenuItem^ sourceToolSub;
 	private: System::Windows::Forms::Button^ deleteBtn;
+	private: System::Windows::Forms::Button^ snBtn;
 
 
 
@@ -100,6 +101,7 @@ namespace SaveNet {
 			this->clearYesSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->clearWriteOnSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->deleteBtn = (gcnew System::Windows::Forms::Button());
+			this->snBtn = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -254,14 +256,14 @@ namespace SaveNet {
 			// changeLogSub
 			// 
 			this->changeLogSub->Name = L"changeLogSub";
-			this->changeLogSub->Size = System::Drawing::Size(359, 54);
+			this->changeLogSub->Size = System::Drawing::Size(322, 54);
 			this->changeLogSub->Text = L"Change log";
 			this->changeLogSub->Click += gcnew System::EventHandler(this, &MyForm::changeLogSub_Click);
 			// 
 			// sourceToolSub
 			// 
 			this->sourceToolSub->Name = L"sourceToolSub";
-			this->sourceToolSub->Size = System::Drawing::Size(359, 54);
+			this->sourceToolSub->Size = System::Drawing::Size(322, 54);
 			this->sourceToolSub->Text = L"Source";
 			this->sourceToolSub->Click += gcnew System::EventHandler(this, &MyForm::sourceToolSub_Click);
 			// 
@@ -317,13 +319,26 @@ namespace SaveNet {
 			this->deleteBtn->Text = L"Delete file";
 			this->deleteBtn->UseVisualStyleBackColor = true;
 			this->deleteBtn->Click += gcnew System::EventHandler(this, &MyForm::deleteBtn_Click);
-			
+			// 
+			// snBtn
+			// 
+			this->snBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->snBtn->Location = System::Drawing::Point(748, 793);
+			this->snBtn->Name = L"snBtn";
+			this->snBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->snBtn->Size = System::Drawing::Size(289, 74);
+			this->snBtn->TabIndex = 14;
+			this->snBtn->Text = L"Extension .sn";
+			this->snBtn->UseVisualStyleBackColor = true;
+			this->snBtn->Click += gcnew System::EventHandler(this, &MyForm::snBtn_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1097, 879);
+			this->Controls->Add(this->snBtn);
 			this->Controls->Add(this->deleteBtn);
 			this->Controls->Add(this->generateBtn);
 			this->Controls->Add(this->clearBtn);
@@ -603,6 +618,15 @@ private: System::Void deleteBtn_Click(System::Object^ sender, System::EventArgs^
 		}
 
 	}
+
+}
+private: System::Void snBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ filename = inputMain->Text;
+	secondText->Clear();
+	std::string filename_convert = ConvertString(filename);
+
+	UseExtension(filename_convert);
 
 }
 };

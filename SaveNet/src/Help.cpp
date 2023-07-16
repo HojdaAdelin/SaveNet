@@ -11,6 +11,6 @@ void srcOpen() {
 
 void ChangeLog() {
 
-	MessageBox::Show("Version 1.0.0 Preview\n\n- Initial commit", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	MessageBox::Show("Version 1.0.1368 Preview\n\n- Theme menu\n- Default theme reconfig", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 }

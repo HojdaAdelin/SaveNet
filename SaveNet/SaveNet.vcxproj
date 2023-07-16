@@ -148,6 +148,7 @@
   <ItemGroup>
     <Image Include="src\assets\logo.ico" />
     <Image Include="src\assets\png_logo.png" />
+    <Image Include="src\assets\sw.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -64,6 +64,9 @@ namespace SaveNet {
 	private: System::Windows::Forms::ToolStripMenuItem^ sourceToolSub;
 	private: System::Windows::Forms::Button^ deleteBtn;
 	private: System::Windows::Forms::Button^ snBtn;
+	private: System::Windows::Forms::ToolStripMenuItem^ themeToolMenu;
+	private: System::Windows::Forms::ToolStripMenuItem^ defaultToolMenu;
+	private: System::Windows::Forms::ToolStripMenuItem^ darkToolMenu;
 
 
 
@@ -100,6 +103,9 @@ namespace SaveNet {
 			this->encryptViewSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->clearYesSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->clearWriteOnSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->themeToolMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->defaultToolMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->darkToolMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->deleteBtn = (gcnew System::Windows::Forms::Button());
 			this->snBtn = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
@@ -128,6 +134,7 @@ namespace SaveNet {
 			// 
 			// encryptBtn
 			// 
+			this->encryptBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->encryptBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->encryptBtn->Location = System::Drawing::Point(60, 713);
@@ -140,6 +147,7 @@ namespace SaveNet {
 			// 
 			// decryptBtn
 			// 
+			this->decryptBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->decryptBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->decryptBtn->Location = System::Drawing::Point(412, 713);
@@ -153,6 +161,7 @@ namespace SaveNet {
 			// 
 			// viewBtn
 			// 
+			this->viewBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->viewBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->viewBtn->Location = System::Drawing::Point(748, 713);
@@ -178,6 +187,7 @@ namespace SaveNet {
 			// writeBtn
 			// 
 			this->writeBtn->Enabled = false;
+			this->writeBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->writeBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->writeBtn->Location = System::Drawing::Point(412, 633);
@@ -192,11 +202,12 @@ namespace SaveNet {
 			// checkWrite
 			// 
 			this->checkWrite->AutoSize = true;
+			this->checkWrite->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->checkWrite->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->checkWrite->Location = System::Drawing::Point(60, 652);
 			this->checkWrite->Name = L"checkWrite";
-			this->checkWrite->Size = System::Drawing::Size(283, 55);
+			this->checkWrite->Size = System::Drawing::Size(278, 55);
 			this->checkWrite->TabIndex = 7;
 			this->checkWrite->Text = L"Write to text";
 			this->checkWrite->UseVisualStyleBackColor = true;
@@ -204,6 +215,7 @@ namespace SaveNet {
 			// 
 			// clearBtn
 			// 
+			this->clearBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->clearBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->clearBtn->Location = System::Drawing::Point(748, 633);
@@ -217,6 +229,7 @@ namespace SaveNet {
 			// 
 			// generateBtn
 			// 
+			this->generateBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->generateBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->generateBtn->Location = System::Drawing::Point(60, 793);
@@ -229,15 +242,16 @@ namespace SaveNet {
 			// 
 			// menuStrip1
 			// 
+			this->menuStrip1->BackColor = System::Drawing::SystemColors::Control;
 			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->homeToolStripMenuItem,
-					this->shortcutsMenu
+					this->shortcutsMenu, this->themeToolMenu
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1097, 53);
+			this->menuStrip1->Size = System::Drawing::Size(1097, 57);
 			this->menuStrip1->TabIndex = 12;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -250,7 +264,7 @@ namespace SaveNet {
 			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->homeToolStripMenuItem->Name = L"homeToolStripMenuItem";
-			this->homeToolStripMenuItem->Size = System::Drawing::Size(127, 49);
+			this->homeToolStripMenuItem->Size = System::Drawing::Size(127, 53);
 			this->homeToolStripMenuItem->Text = L"Home";
 			// 
 			// changeLogSub
@@ -276,7 +290,7 @@ namespace SaveNet {
 			this->shortcutsMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->shortcutsMenu->Name = L"shortcutsMenu";
-			this->shortcutsMenu->Size = System::Drawing::Size(174, 49);
+			this->shortcutsMenu->Size = System::Drawing::Size(174, 53);
 			this->shortcutsMenu->Text = L"Shortcuts";
 			// 
 			// decryptViewSub
@@ -307,8 +321,33 @@ namespace SaveNet {
 			this->clearWriteOnSub->Text = L"Clear + Write On";
 			this->clearWriteOnSub->Click += gcnew System::EventHandler(this, &MyForm::clearWriteOnSub_Click);
 			// 
+			// themeToolMenu
+			// 
+			this->themeToolMenu->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->defaultToolMenu,
+					this->darkToolMenu
+			});
+			this->themeToolMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->themeToolMenu->Name = L"themeToolMenu";
+			this->themeToolMenu->Size = System::Drawing::Size(137, 53);
+			this->themeToolMenu->Text = L"Theme";
+			// 
+			// defaultToolMenu
+			// 
+			this->defaultToolMenu->Name = L"defaultToolMenu";
+			this->defaultToolMenu->Size = System::Drawing::Size(359, 54);
+			this->defaultToolMenu->Text = L"Default";
+			// 
+			// darkToolMenu
+			// 
+			this->darkToolMenu->Name = L"darkToolMenu";
+			this->darkToolMenu->Size = System::Drawing::Size(359, 54);
+			this->darkToolMenu->Text = L"Dark";
+			// 
 			// deleteBtn
 			// 
+			this->deleteBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->deleteBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->deleteBtn->Location = System::Drawing::Point(412, 793);
@@ -322,6 +361,7 @@ namespace SaveNet {
 			// 
 			// snBtn
 			// 
+			this->snBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->snBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->snBtn->Location = System::Drawing::Point(748, 793);
@@ -363,6 +403,78 @@ namespace SaveNet {
 			this->PerformLayout();
 
 		}
+
+		void ButtonsMenuHovEnter(Object^ sender, EventArgs^ e) {
+
+			Button^ button = dynamic_cast<Button^>(sender);
+			ToolStripItem^ menuItem = dynamic_cast<ToolStripItem^>(sender);
+			MenuStrip^ menuItemMain = dynamic_cast<MenuStrip^>(sender);
+
+			if (button != nullptr)
+			{
+				button->BackColor = Color::FromArgb(217, 217, 217);
+				button->FlatAppearance->BorderColor = SystemColors::ControlDark;
+			}
+			else if (menuItem != nullptr)
+			{
+				menuItem->BackColor = Color::FromArgb(217, 217, 217);
+			}
+			else if (menuItemMain != nullptr) {
+
+				menuItemMain->BackColor = Color::FromArgb(217, 217, 217);
+
+			}
+
+			
+		}
+
+		void ButtonsMenuHovLeave(Object^ sender, EventArgs^ e) {
+
+			Button^ button = dynamic_cast<Button^>(sender);
+			ToolStripItem^ menuItem = dynamic_cast<ToolStripItem^>(sender);
+			MenuStrip^ menuItemMain = dynamic_cast<MenuStrip^>(sender);
+
+			if (button != nullptr)
+			{
+				
+				button->BackColor = Color::White;
+				button->FlatAppearance->BorderColor = SystemColors::ControlDark;
+
+			}
+			else if (menuItem != nullptr)
+			{
+				
+				menuItem->BackColor = SystemColors::Menu;
+
+			}
+			else if (menuItemMain != nullptr) {
+
+				menuItemMain->BackColor = SystemColors::Control;
+
+			}
+
+		}
+
+		void MenuStripHoverEnter(Object^ sender, EventArgs^ e)
+		{
+			// Change the back color of the MenuStrip here
+			MenuStrip^ menuStrip = dynamic_cast<MenuStrip^>(sender);
+			if (menuStrip != nullptr)
+			{
+				menuStrip->BackColor = Color::FromArgb(240, 240, 240);
+			}
+		}
+
+		void MenuStripHoverLeave(Object^ sender, EventArgs^ e)
+		{
+			// Change the back color of the MenuStrip here
+			MenuStrip^ menuStrip = dynamic_cast<MenuStrip^>(sender);
+			if (menuStrip != nullptr)
+			{
+				menuStrip->BackColor = SystemColors::Control;
+			}
+		}
+
 #pragma endregion
 	private: System::Void encryptBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 

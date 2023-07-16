@@ -58,5 +58,8 @@
     <Image Include="src\assets\png_logo.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="src\assets\sw.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

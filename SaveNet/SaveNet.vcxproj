@@ -131,6 +131,8 @@
     <ClCompile Include="src\Extension.cpp" />
     <ClCompile Include="src\FileSecurity.cpp" />
     <ClCompile Include="src\Help.cpp" />
+    <ClCompile Include="src\PasswordDecrypt.cpp" />
+    <ClCompile Include="src\PasswordEncrypt.cpp" />
     <ClCompile Include="src\StrConvert.cpp" />
     <ClCompile Include="src\WriteTo.cpp" />
   </ItemGroup>
@@ -139,6 +141,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="src\Include.h" />
+    <ClInclude Include="src\Password.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">

@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include "src/Password.h"
 
 
 namespace SaveNet {
@@ -27,7 +28,7 @@ namespace SaveNet {
 			//TODO: Add the constructor code here
 			//
 		}
-		
+
 
 	protected:
 		/// <summary>
@@ -64,9 +65,10 @@ namespace SaveNet {
 	private: System::Windows::Forms::ToolStripMenuItem^ sourceToolSub;
 	private: System::Windows::Forms::Button^ deleteBtn;
 	private: System::Windows::Forms::Button^ snBtn;
-	private: System::Windows::Forms::ToolStripMenuItem^ themeToolMenu;
-	private: System::Windows::Forms::ToolStripMenuItem^ defaultToolMenu;
-	private: System::Windows::Forms::ToolStripMenuItem^ darkToolMenu;
+	private: System::Windows::Forms::ToolStripMenuItem^ setPass;
+
+
+
 
 
 
@@ -74,7 +76,7 @@ namespace SaveNet {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -103,17 +105,16 @@ namespace SaveNet {
 			this->encryptViewSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->clearYesSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->clearWriteOnSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->themeToolMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->defaultToolMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->darkToolMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->deleteBtn = (gcnew System::Windows::Forms::Button());
 			this->snBtn = (gcnew System::Windows::Forms::Button());
+			this->setPass = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// inputMain
 			// 
-			this->inputMain->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->inputMain->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->inputMain->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->inputMain->Location = System::Drawing::Point(107, 132);
 			this->inputMain->Multiline = true;
@@ -128,9 +129,9 @@ namespace SaveNet {
 				static_cast<System::Byte>(0)));
 			this->frontText->Location = System::Drawing::Point(100, 87);
 			this->frontText->Name = L"frontText";
-			this->frontText->Size = System::Drawing::Size(339, 42);
+			this->frontText->Size = System::Drawing::Size(697, 42);
 			this->frontText->TabIndex = 1;
-			this->frontText->Text = L"Enter the file name ";
+			this->frontText->Text = L"Enter the file name or password (In case)";
 			// 
 			// encryptBtn
 			// 
@@ -175,6 +176,7 @@ namespace SaveNet {
 			// 
 			// secondText
 			// 
+			this->secondText->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->secondText->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->secondText->Location = System::Drawing::Point(107, 248);
@@ -245,39 +247,39 @@ namespace SaveNet {
 			this->menuStrip1->BackColor = System::Drawing::SystemColors::Control;
 			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->homeToolStripMenuItem,
-					this->shortcutsMenu, this->themeToolMenu
+					this->shortcutsMenu
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1097, 57);
+			this->menuStrip1->Size = System::Drawing::Size(1097, 53);
 			this->menuStrip1->TabIndex = 12;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// homeToolStripMenuItem
 			// 
-			this->homeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->homeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->changeLogSub,
-					this->sourceToolSub
+					this->sourceToolSub, this->setPass
 			});
 			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->homeToolStripMenuItem->Name = L"homeToolStripMenuItem";
-			this->homeToolStripMenuItem->Size = System::Drawing::Size(127, 53);
+			this->homeToolStripMenuItem->Size = System::Drawing::Size(127, 49);
 			this->homeToolStripMenuItem->Text = L"Home";
 			// 
 			// changeLogSub
 			// 
 			this->changeLogSub->Name = L"changeLogSub";
-			this->changeLogSub->Size = System::Drawing::Size(322, 54);
+			this->changeLogSub->Size = System::Drawing::Size(423, 54);
 			this->changeLogSub->Text = L"Change log";
 			this->changeLogSub->Click += gcnew System::EventHandler(this, &MyForm::changeLogSub_Click);
 			// 
 			// sourceToolSub
 			// 
 			this->sourceToolSub->Name = L"sourceToolSub";
-			this->sourceToolSub->Size = System::Drawing::Size(322, 54);
+			this->sourceToolSub->Size = System::Drawing::Size(423, 54);
 			this->sourceToolSub->Text = L"Source";
 			this->sourceToolSub->Click += gcnew System::EventHandler(this, &MyForm::sourceToolSub_Click);
 			// 
@@ -290,7 +292,7 @@ namespace SaveNet {
 			this->shortcutsMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->shortcutsMenu->Name = L"shortcutsMenu";
-			this->shortcutsMenu->Size = System::Drawing::Size(174, 53);
+			this->shortcutsMenu->Size = System::Drawing::Size(174, 49);
 			this->shortcutsMenu->Text = L"Shortcuts";
 			// 
 			// decryptViewSub
@@ -321,30 +323,6 @@ namespace SaveNet {
 			this->clearWriteOnSub->Text = L"Clear + Write On";
 			this->clearWriteOnSub->Click += gcnew System::EventHandler(this, &MyForm::clearWriteOnSub_Click);
 			// 
-			// themeToolMenu
-			// 
-			this->themeToolMenu->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->defaultToolMenu,
-					this->darkToolMenu
-			});
-			this->themeToolMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->themeToolMenu->Name = L"themeToolMenu";
-			this->themeToolMenu->Size = System::Drawing::Size(137, 53);
-			this->themeToolMenu->Text = L"Theme";
-			// 
-			// defaultToolMenu
-			// 
-			this->defaultToolMenu->Name = L"defaultToolMenu";
-			this->defaultToolMenu->Size = System::Drawing::Size(359, 54);
-			this->defaultToolMenu->Text = L"Default";
-			// 
-			// darkToolMenu
-			// 
-			this->darkToolMenu->Name = L"darkToolMenu";
-			this->darkToolMenu->Size = System::Drawing::Size(359, 54);
-			this->darkToolMenu->Text = L"Dark";
-			// 
 			// deleteBtn
 			// 
 			this->deleteBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -372,6 +350,13 @@ namespace SaveNet {
 			this->snBtn->Text = L"Extension .sn";
 			this->snBtn->UseVisualStyleBackColor = true;
 			this->snBtn->Click += gcnew System::EventHandler(this, &MyForm::snBtn_Click);
+			// 
+			// setPass
+			// 
+			this->setPass->Name = L"setPass";
+			this->setPass->Size = System::Drawing::Size(423, 54);
+			this->setPass->Text = L"Set local password";
+			this->setPass->Click += gcnew System::EventHandler(this, &MyForm::setPass_Click);
 			// 
 			// MyForm
 			// 
@@ -425,7 +410,7 @@ namespace SaveNet {
 
 			}
 
-			
+
 		}
 
 		void ButtonsMenuHovLeave(Object^ sender, EventArgs^ e) {
@@ -436,14 +421,14 @@ namespace SaveNet {
 
 			if (button != nullptr)
 			{
-				
+
 				button->BackColor = Color::White;
 				button->FlatAppearance->BorderColor = SystemColors::ControlDark;
 
 			}
 			else if (menuItem != nullptr)
 			{
-				
+
 				menuItem->BackColor = SystemColors::Menu;
 
 			}
@@ -511,235 +496,266 @@ namespace SaveNet {
 		secondText->Text = gcnew String(fileCount.c_str());
 
 	}
-private: System::Void checkWrite_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void checkWrite_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
-	if (checkWrite->Checked) {
+		if (checkWrite->Checked) {
 
-		writeBtn->Enabled = true;
-		secondText->ReadOnly = false;
+			writeBtn->Enabled = true;
+			secondText->ReadOnly = false;
+			secondText->Clear();
+
+		}
+		else {
+
+			writeBtn->Enabled = false;
+			secondText->ReadOnly = true;
+
+		}
+
+	}
+	private: System::Void writeBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ getTextFile = inputMain->Text;
+		String^ getContentToWrite = secondText->Text;
+		std::string getTextFile_convert = ConvertString(getTextFile);
+		std::string getContentToWrite_convert = ConvertString(getContentToWrite);
+
+		if (String::IsNullOrEmpty(getTextFile)) {
+
+			MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+		else if (String::IsNullOrEmpty(getContentToWrite)) {
+
+			MessageBox::Show("Enter some text in 2nd textbox to process!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+		else {
+
+			WriteToTextFile(getTextFile_convert, getContentToWrite_convert);
+			MessageBox::Show("Text writed!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+
+	}
+	private: System::Void clearBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ filename = inputMain->Text;
+		std::string filename_convert = ConvertString(filename);
+
+		if (String::IsNullOrEmpty(filename)) {
+
+			MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+		else {
+
+			System::Windows::Forms::DialogResult result = MessageBox::Show(
+				"Are you sure you want to clear the file content?",
+				"SaveNet",
+				MessageBoxButtons::YesNo,
+				MessageBoxIcon::Question);
+
+			if (result == System::Windows::Forms::DialogResult::Yes) {
+
+				ClearFileContent(filename_convert);
+
+			}
+			else {
+
+			}
+
+		}
+
+	}
+	private: System::Void logBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		ChangeLog();
+
+	}
+	private: System::Void srcBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		srcOpen();
+
+	}
+	private: System::Void generateBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		inputMain->Text = gcnew String(GenerateNameFile().c_str());
+
+	}
+	private: System::Void decryptViewSub_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		// 1
+
+		String^ file_name = inputMain->Text;
+		std::string file_name_convert = ConvertString(file_name);
+		DecryptFileNet(file_name_convert);
+
+		// 2
+
 		secondText->Clear();
-		
-	}
-	else {
+		String^ file_name2 = inputMain->Text;
+		std::string file_name_convert2 = ConvertString(file_name2);
+		std::string getLineFromFile;
+		std::string fileCount;
 
-		writeBtn->Enabled = false;
-		secondText->ReadOnly = true;
-		
-	}
+		std::ifstream read(file_name_convert2);
 
-}
-private: System::Void writeBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		while (std::getline(read, getLineFromFile)) {
 
-	String^ getTextFile = inputMain->Text;
-	String^ getContentToWrite = secondText->Text;
-	std::string getTextFile_convert = ConvertString(getTextFile);
-	std::string getContentToWrite_convert = ConvertString(getContentToWrite);
+			fileCount += getLineFromFile + "\r\n";
 
-	if (String::IsNullOrEmpty(getTextFile)) {
+		}
 
-		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		read.close();
+
+		secondText->Text = gcnew String(fileCount.c_str());
 
 	}
-	else if (String::IsNullOrEmpty(getContentToWrite)) {
+	private: System::Void encryptViewSub_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		MessageBox::Show("Enter some text in 2nd textbox to process!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		// 1
+
+		String^ file_name = inputMain->Text;
+		std::string file_name_convert = ConvertString(file_name);
+		EncryptFileNet(file_name_convert);
+
+		// 2
+
+		secondText->Clear();
+		String^ file_name2 = inputMain->Text;
+		std::string file_name_convert2 = ConvertString(file_name2);
+		std::string getLineFromFile;
+		std::string fileCount;
+
+		std::ifstream read(file_name_convert2);
+
+		while (std::getline(read, getLineFromFile)) {
+
+			fileCount += getLineFromFile + "\r\n";
+
+		}
+
+		read.close();
+
+		secondText->Text = gcnew String(fileCount.c_str());
 
 	}
-	else {
+	private: System::Void clearYesSub_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		WriteToTextFile(getTextFile_convert, getContentToWrite_convert);
-		MessageBox::Show("Text writed!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		String^ filename = inputMain->Text;
+		std::string filename_convert = ConvertString(filename);
 
-	}
+		if (String::IsNullOrEmpty(filename)) {
 
-}
-private: System::Void clearBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+			MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
-	String^ filename = inputMain->Text;
-	std::string filename_convert = ConvertString(filename);
-
-	if (String::IsNullOrEmpty(filename)) {
-
-		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-	}
-	else {
-
-		System::Windows::Forms::DialogResult result = MessageBox::Show(
-			"Are you sure you want to clear the file content?",
-			"SaveNet",
-			MessageBoxButtons::YesNo,
-			MessageBoxIcon::Question);
-
-		if (result == System::Windows::Forms::DialogResult::Yes) {
+		}
+		else {
 
 			ClearFileContent(filename_convert);
 
 		}
-		else {
-
-		}
-
+		secondText->Clear();
 	}
+	private: System::Void clearWriteOnSub_Click(System::Object^ sender, System::EventArgs^ e) {
 
-}
-private: System::Void logBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ filename = inputMain->Text;
+		std::string filename_convert = ConvertString(filename);
 
-	ChangeLog();
+		if (String::IsNullOrEmpty(filename)) {
 
-}
-private: System::Void srcBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	srcOpen();
-
-}
-private: System::Void generateBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	inputMain->Text = gcnew String(GenerateNameFile().c_str());
-
-}
-private: System::Void decryptViewSub_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	// 1
-
-	String^ file_name = inputMain->Text;
-	std::string file_name_convert = ConvertString(file_name);
-	DecryptFileNet(file_name_convert);
-
-	// 2
-
-	secondText->Clear();
-	String^ file_name2 = inputMain->Text;
-	std::string file_name_convert2 = ConvertString(file_name2);
-	std::string getLineFromFile;
-	std::string fileCount;
-
-	std::ifstream read(file_name_convert2);
-
-	while (std::getline(read, getLineFromFile)) {
-
-		fileCount += getLineFromFile + "\r\n";
-
-	}
-
-	read.close();
-
-	secondText->Text = gcnew String(fileCount.c_str());
-
-}
-private: System::Void encryptViewSub_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	// 1
-
-	String^ file_name = inputMain->Text;
-	std::string file_name_convert = ConvertString(file_name);
-	EncryptFileNet(file_name_convert);
-
-	// 2
-
-	secondText->Clear();
-	String^ file_name2 = inputMain->Text;
-	std::string file_name_convert2 = ConvertString(file_name2);
-	std::string getLineFromFile;
-	std::string fileCount;
-
-	std::ifstream read(file_name_convert2);
-
-	while (std::getline(read, getLineFromFile)) {
-
-		fileCount += getLineFromFile + "\r\n";
-
-	}
-
-	read.close();
-
-	secondText->Text = gcnew String(fileCount.c_str());
-
-}
-private: System::Void clearYesSub_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	String^ filename = inputMain->Text;
-	std::string filename_convert = ConvertString(filename);
-
-	if (String::IsNullOrEmpty(filename)) {
-
-		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-	}
-	else {
-
-		ClearFileContent(filename_convert);
-
-	}
-	secondText->Clear();
-}
-private: System::Void clearWriteOnSub_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	String^ filename = inputMain->Text;
-	std::string filename_convert = ConvertString(filename);
-
-	if (String::IsNullOrEmpty(filename)) {
-
-		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-	}
-	else {
-
-		ClearFileContent(filename_convert);
-
-	}
-
-	checkWrite->Checked = true;
-	secondText->Clear();
-}
-private: System::Void changeLogSub_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	ChangeLog();
-
-}
-private: System::Void sourceToolSub_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	srcOpen();
-
-}
-private: System::Void deleteBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	String^ filename = inputMain->Text;
-	std::string filename_convert = ConvertString(filename);
-
-	if (String::IsNullOrEmpty(filename)) {
-
-		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-	}
-	else {
-
-		System::Windows::Forms::DialogResult result = MessageBox::Show(
-			"Are you sure you want to delete the file?",
-			"SaveNet",
-			MessageBoxButtons::YesNo,
-			MessageBoxIcon::Question);
-
-		if (result == System::Windows::Forms::DialogResult::Yes) {
-
-			remove(filename_convert.c_str());
+			MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 		}
 		else {
 
+			ClearFileContent(filename_convert);
+
+		}
+
+		checkWrite->Checked = true;
+		secondText->Clear();
+	}
+	private: System::Void changeLogSub_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		ChangeLog();
+
+	}
+	private: System::Void sourceToolSub_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		srcOpen();
+
+	}
+	private: System::Void deleteBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ filename = inputMain->Text;
+		std::string filename_convert = ConvertString(filename);
+
+		if (String::IsNullOrEmpty(filename)) {
+
+			MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+		else {
+
+			System::Windows::Forms::DialogResult result = MessageBox::Show(
+				"Are you sure you want to delete the file?",
+				"SaveNet",
+				MessageBoxButtons::YesNo,
+				MessageBoxIcon::Question);
+
+			if (result == System::Windows::Forms::DialogResult::Yes) {
+
+				remove(filename_convert.c_str());
+
+			}
+			else {
+
+			}
+
 		}
 
 	}
+	private: System::Void snBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-}
-private: System::Void snBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ filename = inputMain->Text;
+		secondText->Clear();
+		std::string filename_convert = ConvertString(filename);
 
-	String^ filename = inputMain->Text;
-	secondText->Clear();
-	std::string filename_convert = ConvertString(filename);
+		UseExtension(filename_convert);
 
-	UseExtension(filename_convert);
+	}
+	private: System::Void setPass_Click(System::Object^ sender, System::EventArgs^ e) {
 
-}
+		String^ filename = inputMain->Text;
+		std::string filename_convert = ConvertString(filename);
+
+		if (String::IsNullOrEmpty(filename)) {
+
+			MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+		else {
+
+			System::Windows::Forms::DialogResult result = MessageBox::Show(
+				"Are you sure you want to set local password from the input?",
+				"SaveNet",
+				MessageBoxButtons::YesNo,
+				MessageBoxIcon::Question);
+
+			if (result == System::Windows::Forms::DialogResult::Yes) {
+
+				WritePassword(filename_convert);
+				EncryptPassword();
+
+			}
+			else {
+
+			}
+
+		}
+
+	}
 };
 }

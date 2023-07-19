@@ -125,12 +125,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="PasswordForm.cpp" />
     <ClCompile Include="src\ClearFile.cpp" />
     <ClCompile Include="src\Decrypt.cpp" />
     <ClCompile Include="src\Encrypt.cpp" />
     <ClCompile Include="src\Extension.cpp" />
     <ClCompile Include="src\FileSecurity.cpp" />
     <ClCompile Include="src\Help.cpp" />
+    <ClCompile Include="src\PasswordCheck.cpp" />
     <ClCompile Include="src\PasswordDecrypt.cpp" />
     <ClCompile Include="src\PasswordEncrypt.cpp" />
     <ClCompile Include="src\StrConvert.cpp" />
@@ -140,12 +142,18 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PasswordForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="src\Include.h" />
     <ClInclude Include="src\Password.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordForm.resx">
+      <DependentUpon>PasswordForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

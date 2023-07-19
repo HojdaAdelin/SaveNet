@@ -726,35 +726,52 @@ namespace SaveNet {
 		UseExtension(filename_convert);
 
 	}
+
 	private: System::Void setPass_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		String^ filename = inputMain->Text;
-		std::string filename_convert = ConvertString(filename);
+		std::ifstream check("password.txt");
 
-		if (String::IsNullOrEmpty(filename)) {
+		bool result = check.good();
 
-			MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		if (result == true) {
+
+			MessageBox::Show("Password already setted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			return;
 
 		}
 		else {
 
-			System::Windows::Forms::DialogResult result = MessageBox::Show(
-				"Are you sure you want to set local password from the input?",
-				"SaveNet",
-				MessageBoxButtons::YesNo,
-				MessageBoxIcon::Question);
+			String^ filename = inputMain->Text;
+			std::string filename_convert = ConvertString(filename);
 
-			if (result == System::Windows::Forms::DialogResult::Yes) {
+			if (String::IsNullOrEmpty(filename)) {
 
-				WritePassword(filename_convert);
-				EncryptPassword();
+				MessageBox::Show("Enter the password first!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 			}
 			else {
 
+				System::Windows::Forms::DialogResult result = MessageBox::Show(
+					"Are you sure you want to set local password from the input?",
+					"SaveNet",
+					MessageBoxButtons::YesNo,
+					MessageBoxIcon::Question);
+
+				if (result == System::Windows::Forms::DialogResult::Yes) {
+
+					WritePassword(filename_convert);
+					EncryptPassword();
+
+				}
+				else {
+
+				}
+
 			}
 
 		}
+
+		
 
 	}
 };

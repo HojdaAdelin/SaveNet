@@ -24,10 +24,10 @@ This algorithm take a letter and convert into an ASCII code added by a calculati
 
 - [ ] Dark theme
 - [ ] Manage theme
-- [ ] Default theme reconfig
-- [ ] Local password
+- [x] Default theme reconfig
+- [x] Local password
 - [ ] Get local user name to login
-
+- [ ] New create file function
 # Notice
 
 This application is only for educational proposal and if you really want to use this app wait for the MAIN RELEASE.

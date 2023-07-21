@@ -6,57 +6,68 @@
 #include <stdio.h>
 
 void EncryptFileNet(std::string filename) {
-		
-	bool fresult, sresult;
-	char xr;
-	std::fstream fin, fout;
+	
+	if (filename == "password.txt") {
 
-	fin.open(filename, std::fstream::in);
-
-	if (!fin) {
-
-		MessageBox::Show("Error: File can't be opened!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		MessageBox::Show("Error: Can't encrypt password anymore!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		return;
+
 	}
-	fresult = true;
+	else {
 
-	fout.open("other.txt", std::fstream::out);
+		bool fresult, sresult;
+		char xr;
+		std::fstream fin, fout;
 
-	if (!fout) {
+		fin.open(filename, std::fstream::in);
 
-		MessageBox::Show("Error: Can't write to the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		if (!fin) {
+
+			MessageBox::Show("Error: File can't be opened!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			return;
+		}
+		fresult = true;
+
+		fout.open("other.txt", std::fstream::out);
+
+		if (!fout) {
+
+			MessageBox::Show("Error: Can't write to the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			fin.close();
+			return;
+
+		}
+		sresult = true;
+
+		while (fin >> std::noskipws >> xr) {
+
+			xr = xr + (1000 * 8 + 45550 + 880 + 2222);
+			fout << xr;
+
+		}
+
 		fin.close();
-		return;
+		fout.close();
+
+		fin.open(filename, std::fstream::out);
+		fout.open("other.txt", std::fstream::in);
+
+		while (fout >> std::noskipws >> xr) {
+
+			fin << xr;
+
+		}
+
+		fin.close();
+		fout.close();
+
+		if (fresult == true && sresult == true) {
+
+			MessageBox::Show("File encrypted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
 
 	}
-	sresult = true;
 
-	while (fin >> std::noskipws >> xr) {
-
-		xr = xr + (1000 * 8 + 45550 + 880 + 2222);
-		fout << xr;
-
-	}
-
-	fin.close();
-	fout.close();
-
-	fin.open(filename, std::fstream::out);
-	fout.open("other.txt", std::fstream::in);
-
-	while (fout >> std::noskipws >> xr) {
-			
-		fin << xr;
-
-	}
-
-	fin.close();
-	fout.close();
-
-	if (fresult == true && sresult == true) {
-
-		MessageBox::Show("File encrypted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-	}
 
 }

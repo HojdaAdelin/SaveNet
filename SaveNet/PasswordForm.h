@@ -78,7 +78,6 @@ namespace SaveNet {
 			this->passBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->passBox->Location = System::Drawing::Point(220, 222);
-			this->passBox->Multiline = true;
 			this->passBox->Name = L"passBox";
 			this->passBox->Size = System::Drawing::Size(529, 86);
 			this->passBox->TabIndex = 1;

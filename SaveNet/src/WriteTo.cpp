@@ -6,14 +6,25 @@
 
 void WriteToTextFile(std::string filenameWT, std::string contenttofile) {
 
-	std::ofstream write(filenameWT, std::ios::app);
+	if (filenameWT == "password.txt") {
 
-	if (write.is_open()) {
+		MessageBox::Show("Error: Can't write to password anymore!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		return;
 
-		write << "\n" << contenttofile << "\n";
+	}
+	else {
+
+		std::ofstream write(filenameWT, std::ios::app);
+
+		if (write.is_open()) {
+
+			write << "\n" << contenttofile << "\n";
+
+		}
+
+		write.close();
 
 	}
 
-	write.close();
 
 }

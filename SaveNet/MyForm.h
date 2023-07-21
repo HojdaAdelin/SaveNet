@@ -51,7 +51,7 @@ namespace SaveNet {
 	private: System::Windows::Forms::Button^ writeBtn;
 	private: System::Windows::Forms::CheckBox^ checkWrite;
 	private: System::Windows::Forms::Button^ clearBtn;
-	private: System::Windows::Forms::Button^ generateBtn;
+
 
 
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
@@ -63,9 +63,16 @@ namespace SaveNet {
 	private: System::Windows::Forms::ToolStripMenuItem^ homeToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ changeLogSub;
 	private: System::Windows::Forms::ToolStripMenuItem^ sourceToolSub;
-	private: System::Windows::Forms::Button^ deleteBtn;
-	private: System::Windows::Forms::Button^ snBtn;
-	private: System::Windows::Forms::ToolStripMenuItem^ setPass;
+
+
+
+	private: System::Windows::Forms::ToolStripMenuItem^ fileToolMenu;
+	private: System::Windows::Forms::ToolStripMenuItem^ generateFileToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ deleteFileToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ createFileToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ securityToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ snExtensionToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ setLocalPasswordToolStripMenuItem;
 
 
 
@@ -95,31 +102,34 @@ namespace SaveNet {
 			this->writeBtn = (gcnew System::Windows::Forms::Button());
 			this->checkWrite = (gcnew System::Windows::Forms::CheckBox());
 			this->clearBtn = (gcnew System::Windows::Forms::Button());
-			this->generateBtn = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->homeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->changeLogSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->sourceToolSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->fileToolMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->generateFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->deleteFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->createFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->shortcutsMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->decryptViewSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->encryptViewSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->clearYesSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->clearWriteOnSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->deleteBtn = (gcnew System::Windows::Forms::Button());
-			this->snBtn = (gcnew System::Windows::Forms::Button());
-			this->setPass = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->securityToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->snExtensionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->setLocalPasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// inputMain
 			// 
+			this->inputMain->AccessibleDescription = L"Main input";
 			this->inputMain->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->inputMain->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->inputMain->Location = System::Drawing::Point(107, 132);
-			this->inputMain->Multiline = true;
 			this->inputMain->Name = L"inputMain";
-			this->inputMain->Size = System::Drawing::Size(891, 79);
+			this->inputMain->Size = System::Drawing::Size(891, 80);
 			this->inputMain->TabIndex = 0;
 			// 
 			// frontText
@@ -203,6 +213,9 @@ namespace SaveNet {
 			// 
 			// checkWrite
 			// 
+			this->checkWrite->AccessibleDescription = L"Allow to edit a file entered in the main input.";
+			this->checkWrite->AccessibleName = L"Write to text";
+			this->checkWrite->AccessibleRole = System::Windows::Forms::AccessibleRole::MenuPopup;
 			this->checkWrite->AutoSize = true;
 			this->checkWrite->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->checkWrite->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -229,27 +242,14 @@ namespace SaveNet {
 			this->clearBtn->UseVisualStyleBackColor = true;
 			this->clearBtn->Click += gcnew System::EventHandler(this, &MyForm::clearBtn_Click);
 			// 
-			// generateBtn
-			// 
-			this->generateBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->generateBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->generateBtn->Location = System::Drawing::Point(60, 793);
-			this->generateBtn->Name = L"generateBtn";
-			this->generateBtn->Size = System::Drawing::Size(306, 74);
-			this->generateBtn->TabIndex = 9;
-			this->generateBtn->Text = L"Generate file";
-			this->generateBtn->UseVisualStyleBackColor = true;
-			this->generateBtn->Click += gcnew System::EventHandler(this, &MyForm::generateBtn_Click);
-			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->BackColor = System::Drawing::SystemColors::Control;
 			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->homeToolStripMenuItem,
-					this->shortcutsMenu
+					this->fileToolMenu, this->shortcutsMenu, this->securityToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -259,9 +259,9 @@ namespace SaveNet {
 			// 
 			// homeToolStripMenuItem
 			// 
-			this->homeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->homeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->changeLogSub,
-					this->sourceToolSub, this->setPass
+					this->sourceToolSub
 			});
 			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -272,16 +272,48 @@ namespace SaveNet {
 			// changeLogSub
 			// 
 			this->changeLogSub->Name = L"changeLogSub";
-			this->changeLogSub->Size = System::Drawing::Size(423, 54);
+			this->changeLogSub->Size = System::Drawing::Size(359, 54);
 			this->changeLogSub->Text = L"Change log";
 			this->changeLogSub->Click += gcnew System::EventHandler(this, &MyForm::changeLogSub_Click);
 			// 
 			// sourceToolSub
 			// 
 			this->sourceToolSub->Name = L"sourceToolSub";
-			this->sourceToolSub->Size = System::Drawing::Size(423, 54);
+			this->sourceToolSub->Size = System::Drawing::Size(359, 54);
 			this->sourceToolSub->Text = L"Source";
 			this->sourceToolSub->Click += gcnew System::EventHandler(this, &MyForm::sourceToolSub_Click);
+			// 
+			// fileToolMenu
+			// 
+			this->fileToolMenu->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->generateFileToolStripMenuItem,
+					this->deleteFileToolStripMenuItem, this->createFileToolStripMenuItem
+			});
+			this->fileToolMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->fileToolMenu->Name = L"fileToolMenu";
+			this->fileToolMenu->Size = System::Drawing::Size(89, 49);
+			this->fileToolMenu->Text = L"File";
+			// 
+			// generateFileToolStripMenuItem
+			// 
+			this->generateFileToolStripMenuItem->Name = L"generateFileToolStripMenuItem";
+			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->generateFileToolStripMenuItem->Text = L"Generate file";
+			this->generateFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generateFileToolStripMenuItem_Click);
+			// 
+			// deleteFileToolStripMenuItem
+			// 
+			this->deleteFileToolStripMenuItem->Name = L"deleteFileToolStripMenuItem";
+			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->deleteFileToolStripMenuItem->Text = L"Delete file";
+			this->deleteFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFileToolStripMenuItem_Click);
+			// 
+			// createFileToolStripMenuItem
+			// 
+			this->createFileToolStripMenuItem->Name = L"createFileToolStripMenuItem";
+			this->createFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->createFileToolStripMenuItem->Text = L"Create file";
 			// 
 			// shortcutsMenu
 			// 
@@ -323,49 +355,37 @@ namespace SaveNet {
 			this->clearWriteOnSub->Text = L"Clear + Write On";
 			this->clearWriteOnSub->Click += gcnew System::EventHandler(this, &MyForm::clearWriteOnSub_Click);
 			// 
-			// deleteBtn
+			// securityToolStripMenuItem
 			// 
-			this->deleteBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->deleteBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->securityToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->snExtensionToolStripMenuItem,
+					this->setLocalPasswordToolStripMenuItem
+			});
+			this->securityToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->deleteBtn->Location = System::Drawing::Point(412, 793);
-			this->deleteBtn->Name = L"deleteBtn";
-			this->deleteBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->deleteBtn->Size = System::Drawing::Size(289, 74);
-			this->deleteBtn->TabIndex = 13;
-			this->deleteBtn->Text = L"Delete file";
-			this->deleteBtn->UseVisualStyleBackColor = true;
-			this->deleteBtn->Click += gcnew System::EventHandler(this, &MyForm::deleteBtn_Click);
+			this->securityToolStripMenuItem->Name = L"securityToolStripMenuItem";
+			this->securityToolStripMenuItem->Size = System::Drawing::Size(152, 49);
+			this->securityToolStripMenuItem->Text = L"Security";
 			// 
-			// snBtn
+			// snExtensionToolStripMenuItem
 			// 
-			this->snBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->snBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->snBtn->Location = System::Drawing::Point(748, 793);
-			this->snBtn->Name = L"snBtn";
-			this->snBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->snBtn->Size = System::Drawing::Size(289, 74);
-			this->snBtn->TabIndex = 14;
-			this->snBtn->Text = L"Extension .sn";
-			this->snBtn->UseVisualStyleBackColor = true;
-			this->snBtn->Click += gcnew System::EventHandler(this, &MyForm::snBtn_Click);
+			this->snExtensionToolStripMenuItem->Name = L"snExtensionToolStripMenuItem";
+			this->snExtensionToolStripMenuItem->Size = System::Drawing::Size(423, 54);
+			this->snExtensionToolStripMenuItem->Text = L".sn extension";
+			this->snExtensionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::snExtensionToolStripMenuItem_Click);
 			// 
-			// setPass
+			// setLocalPasswordToolStripMenuItem
 			// 
-			this->setPass->Name = L"setPass";
-			this->setPass->Size = System::Drawing::Size(423, 54);
-			this->setPass->Text = L"Set local password";
-			this->setPass->Click += gcnew System::EventHandler(this, &MyForm::setPass_Click);
+			this->setLocalPasswordToolStripMenuItem->Name = L"setLocalPasswordToolStripMenuItem";
+			this->setLocalPasswordToolStripMenuItem->Size = System::Drawing::Size(423, 54);
+			this->setLocalPasswordToolStripMenuItem->Text = L"Set local password";
+			this->setLocalPasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::setLocalPasswordToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1097, 879);
-			this->Controls->Add(this->snBtn);
-			this->Controls->Add(this->deleteBtn);
-			this->Controls->Add(this->generateBtn);
 			this->Controls->Add(this->clearBtn);
 			this->Controls->Add(this->checkWrite);
 			this->Controls->Add(this->writeBtn);
@@ -774,5 +794,94 @@ namespace SaveNet {
 		
 
 	}
+private: System::Void generateFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	inputMain->Text = gcnew String(GenerateNameFile().c_str());
+
+}
+private: System::Void deleteFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ filename = inputMain->Text;
+	std::string filename_convert = ConvertString(filename);
+
+	if (String::IsNullOrEmpty(filename)) {
+
+		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+	else {
+
+		System::Windows::Forms::DialogResult result = MessageBox::Show(
+			"Are you sure you want to delete the file?",
+			"SaveNet",
+			MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question);
+
+		if (result == System::Windows::Forms::DialogResult::Yes) {
+
+			remove(filename_convert.c_str());
+
+		}
+		else {
+
+		}
+
+	}
+
+}
+private: System::Void snExtensionToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ filename = inputMain->Text;
+	secondText->Clear();
+	std::string filename_convert = ConvertString(filename);
+
+	UseExtension(filename_convert);
+
+}
+private: System::Void setLocalPasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	std::ifstream check("password.txt");
+
+	bool result = check.good();
+
+	if (result == true) {
+
+		MessageBox::Show("Password already setted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		return;
+
+	}
+	else {
+
+		String^ filename = inputMain->Text;
+		std::string filename_convert = ConvertString(filename);
+
+		if (String::IsNullOrEmpty(filename)) {
+
+			MessageBox::Show("Enter the password first!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+		else {
+
+			System::Windows::Forms::DialogResult result = MessageBox::Show(
+				"Are you sure you want to set local password from the input?",
+				"SaveNet",
+				MessageBoxButtons::YesNo,
+				MessageBoxIcon::Question);
+
+			if (result == System::Windows::Forms::DialogResult::Yes) {
+
+				WritePassword(filename_convert);
+				EncryptPassword();
+
+			}
+			else {
+
+			}
+
+		}
+
+	}
+
+}
 };
 }

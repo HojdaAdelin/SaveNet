@@ -298,22 +298,23 @@ namespace SaveNet {
 			// generateFileToolStripMenuItem
 			// 
 			this->generateFileToolStripMenuItem->Name = L"generateFileToolStripMenuItem";
-			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->generateFileToolStripMenuItem->Text = L"Generate file";
 			this->generateFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generateFileToolStripMenuItem_Click);
 			// 
 			// deleteFileToolStripMenuItem
 			// 
 			this->deleteFileToolStripMenuItem->Name = L"deleteFileToolStripMenuItem";
-			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->deleteFileToolStripMenuItem->Text = L"Delete file";
 			this->deleteFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFileToolStripMenuItem_Click);
 			// 
 			// createFileToolStripMenuItem
 			// 
 			this->createFileToolStripMenuItem->Name = L"createFileToolStripMenuItem";
-			this->createFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->createFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->createFileToolStripMenuItem->Text = L"Create file";
+			this->createFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::createFileToolStripMenuItem_Click);
 			// 
 			// shortcutsMenu
 			// 
@@ -881,6 +882,14 @@ private: System::Void setLocalPasswordToolStripMenuItem_Click(System::Object^ se
 		}
 
 	}
+
+}
+private: System::Void createFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ text = inputMain->Text;
+	std::string text_convert = ConvertString(text);
+
+	CreateUserFile(text_convert + ".txt");
 
 }
 };

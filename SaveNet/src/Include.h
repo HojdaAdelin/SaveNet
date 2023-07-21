@@ -17,3 +17,4 @@ void ChangeLog();
 void srcOpen();
 std::string GenerateNameFile();
 void UseExtension(std::string filenameUE);
+void CreateUserFile(std::string filenameCU);

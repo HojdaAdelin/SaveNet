@@ -129,6 +129,7 @@
     <ClCompile Include="src\ClearFile.cpp" />
     <ClCompile Include="src\CreateFile.cpp" />
     <ClCompile Include="src\Decrypt.cpp" />
+    <ClCompile Include="src\DeletePassword.cpp" />
     <ClCompile Include="src\Encrypt.cpp" />
     <ClCompile Include="src\Extension.cpp" />
     <ClCompile Include="src\FileSecurity.cpp" />

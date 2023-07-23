@@ -74,6 +74,8 @@ namespace SaveNet {
 	private: System::Windows::Forms::ToolStripMenuItem^ snExtensionToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ setLocalPasswordToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ creatorToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ changePasswordToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ deletePasswordToolStripMenuItem;
 
 
 
@@ -107,6 +109,7 @@ namespace SaveNet {
 			this->homeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->changeLogSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->sourceToolSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->creatorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->fileToolMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->generateFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->deleteFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -119,7 +122,8 @@ namespace SaveNet {
 			this->securityToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->snExtensionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->setLocalPasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->creatorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->changePasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->deletePasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -274,16 +278,23 @@ namespace SaveNet {
 			// changeLogSub
 			// 
 			this->changeLogSub->Name = L"changeLogSub";
-			this->changeLogSub->Size = System::Drawing::Size(359, 54);
+			this->changeLogSub->Size = System::Drawing::Size(322, 54);
 			this->changeLogSub->Text = L"Change log";
 			this->changeLogSub->Click += gcnew System::EventHandler(this, &MyForm::changeLogSub_Click);
 			// 
 			// sourceToolSub
 			// 
 			this->sourceToolSub->Name = L"sourceToolSub";
-			this->sourceToolSub->Size = System::Drawing::Size(359, 54);
+			this->sourceToolSub->Size = System::Drawing::Size(322, 54);
 			this->sourceToolSub->Text = L"Source";
 			this->sourceToolSub->Click += gcnew System::EventHandler(this, &MyForm::sourceToolSub_Click);
+			// 
+			// creatorToolStripMenuItem
+			// 
+			this->creatorToolStripMenuItem->Name = L"creatorToolStripMenuItem";
+			this->creatorToolStripMenuItem->Size = System::Drawing::Size(322, 54);
+			this->creatorToolStripMenuItem->Text = L"Creator";
+			this->creatorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::creatorToolStripMenuItem_Click);
 			// 
 			// fileToolMenu
 			// 
@@ -360,9 +371,9 @@ namespace SaveNet {
 			// 
 			// securityToolStripMenuItem
 			// 
-			this->securityToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->securityToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->snExtensionToolStripMenuItem,
-					this->setLocalPasswordToolStripMenuItem
+					this->setLocalPasswordToolStripMenuItem, this->changePasswordToolStripMenuItem, this->deletePasswordToolStripMenuItem
 			});
 			this->securityToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -384,12 +395,36 @@ namespace SaveNet {
 			this->setLocalPasswordToolStripMenuItem->Text = L"Set local password";
 			this->setLocalPasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::setLocalPasswordToolStripMenuItem_Click);
 			// 
-			// creatorToolStripMenuItem
+			// changePasswordToolStripMenuItem
 			// 
-			this->creatorToolStripMenuItem->Name = L"creatorToolStripMenuItem";
-			this->creatorToolStripMenuItem->Size = System::Drawing::Size(359, 54);
-			this->creatorToolStripMenuItem->Text = L"Creator";
-			this->creatorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::creatorToolStripMenuItem_Click);
+			this->changePasswordToolStripMenuItem->Enabled = false;
+			this->changePasswordToolStripMenuItem->Name = L"changePasswordToolStripMenuItem";
+			this->changePasswordToolStripMenuItem->Size = System::Drawing::Size(423, 54);
+			this->changePasswordToolStripMenuItem->Text = L"Change password";
+			// 
+			// deletePasswordToolStripMenuItem
+			// 
+
+			bool checkpassfile;
+
+			std::ifstream file("password.txt");
+			checkpassfile = file.good();
+			
+			if (checkpassfile == true) {
+
+				this->deletePasswordToolStripMenuItem->Enabled = true;
+
+			}
+			else {
+
+				this->deletePasswordToolStripMenuItem->Enabled = false;
+
+			}
+
+			this->deletePasswordToolStripMenuItem->Name = L"deletePasswordToolStripMenuItem";
+			this->deletePasswordToolStripMenuItem->Size = System::Drawing::Size(423, 54);
+			this->deletePasswordToolStripMenuItem->Text = L"Delete password";
+			this->deletePasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deletePasswordToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -904,6 +939,24 @@ private: System::Void createFileToolStripMenuItem_Click(System::Object^ sender, 
 private: System::Void creatorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	creator();
+
+}
+private: System::Void deletePasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	System::Windows::Forms::DialogResult result = MessageBox::Show(
+		"Are you sure you want to delete the local password?",
+		"SaveNet",
+		MessageBoxButtons::YesNo,
+		MessageBoxIcon::Question);
+
+	if (result == System::Windows::Forms::DialogResult::Yes) {
+
+		DeletePassword();
+
+	}
+	else {
+
+	}
 
 }
 };

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include "../MyForm.h"
+#include <Windows.h>
 
 using namespace Windows::Forms;
 
@@ -12,6 +13,9 @@ void WritePassword(std::string password) {
 	write << password;
 
 	write.close();
+
+	SetFileAttributesA("password.txt", FILE_ATTRIBUTE_HIDDEN);
+
 
 }
 
@@ -50,5 +54,7 @@ void EncryptPassword() {
 
 	fin.close();
 	fout.close();
+
+	SetFileAttributesA("pass.txt", FILE_ATTRIBUTE_HIDDEN);
 
 }

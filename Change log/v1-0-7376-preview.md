@@ -11,3 +11,4 @@ Added:
 Change:
 
 - Password input support only a line
+- Write text layout

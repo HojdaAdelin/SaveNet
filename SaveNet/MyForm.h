@@ -73,6 +73,7 @@ namespace SaveNet {
 	private: System::Windows::Forms::ToolStripMenuItem^ securityToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ snExtensionToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ setLocalPasswordToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ creatorToolStripMenuItem;
 
 
 
@@ -118,6 +119,7 @@ namespace SaveNet {
 			this->securityToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->snExtensionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->setLocalPasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->creatorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -220,11 +222,11 @@ namespace SaveNet {
 			this->checkWrite->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->checkWrite->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->checkWrite->Location = System::Drawing::Point(60, 652);
+			this->checkWrite->Location = System::Drawing::Point(60, 641);
 			this->checkWrite->Name = L"checkWrite";
-			this->checkWrite->Size = System::Drawing::Size(278, 55);
+			this->checkWrite->Size = System::Drawing::Size(231, 55);
 			this->checkWrite->TabIndex = 7;
-			this->checkWrite->Text = L"Write to text";
+			this->checkWrite->Text = L"Write text";
 			this->checkWrite->UseVisualStyleBackColor = true;
 			this->checkWrite->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkWrite_CheckedChanged);
 			// 
@@ -259,9 +261,9 @@ namespace SaveNet {
 			// 
 			// homeToolStripMenuItem
 			// 
-			this->homeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->homeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->changeLogSub,
-					this->sourceToolSub
+					this->sourceToolSub, this->creatorToolStripMenuItem
 			});
 			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -298,21 +300,21 @@ namespace SaveNet {
 			// generateFileToolStripMenuItem
 			// 
 			this->generateFileToolStripMenuItem->Name = L"generateFileToolStripMenuItem";
-			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
 			this->generateFileToolStripMenuItem->Text = L"Generate file";
 			this->generateFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generateFileToolStripMenuItem_Click);
 			// 
 			// deleteFileToolStripMenuItem
 			// 
 			this->deleteFileToolStripMenuItem->Name = L"deleteFileToolStripMenuItem";
-			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
 			this->deleteFileToolStripMenuItem->Text = L"Delete file";
 			this->deleteFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFileToolStripMenuItem_Click);
 			// 
 			// createFileToolStripMenuItem
 			// 
 			this->createFileToolStripMenuItem->Name = L"createFileToolStripMenuItem";
-			this->createFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->createFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
 			this->createFileToolStripMenuItem->Text = L"Create file";
 			this->createFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::createFileToolStripMenuItem_Click);
 			// 
@@ -381,6 +383,13 @@ namespace SaveNet {
 			this->setLocalPasswordToolStripMenuItem->Size = System::Drawing::Size(423, 54);
 			this->setLocalPasswordToolStripMenuItem->Text = L"Set local password";
 			this->setLocalPasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::setLocalPasswordToolStripMenuItem_Click);
+			// 
+			// creatorToolStripMenuItem
+			// 
+			this->creatorToolStripMenuItem->Name = L"creatorToolStripMenuItem";
+			this->creatorToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->creatorToolStripMenuItem->Text = L"Creator";
+			this->creatorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::creatorToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -890,6 +899,11 @@ private: System::Void createFileToolStripMenuItem_Click(System::Object^ sender, 
 	std::string text_convert = ConvertString(text);
 
 	CreateUserFile(text_convert + ".txt");
+
+}
+private: System::Void creatorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	creator();
 
 }
 };

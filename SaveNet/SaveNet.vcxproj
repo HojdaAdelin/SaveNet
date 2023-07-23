@@ -132,6 +132,7 @@
     <ClCompile Include="src\Encrypt.cpp" />
     <ClCompile Include="src\Extension.cpp" />
     <ClCompile Include="src\FileSecurity.cpp" />
+    <ClCompile Include="src\GetUserName.cpp" />
     <ClCompile Include="src\Help.cpp" />
     <ClCompile Include="src\PasswordCheck.cpp" />
     <ClCompile Include="src\PasswordDecrypt.cpp" />

@@ -26,7 +26,7 @@ This algorithm take a letter and convert into an ASCII code added by a calculati
 - [ ] Manage theme
 - [x] Default theme reconfig
 - [x] Local password
-- [ ] Get local user name to login
+- [x] Get local user name to login
 - [x] New create file function
 # Notice
 

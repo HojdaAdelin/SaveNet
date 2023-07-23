@@ -7,6 +7,7 @@ Added:
 - Descriptions
 - File menu
 - Security menu
+- Username in password form
 
 Change:
 

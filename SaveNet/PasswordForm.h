@@ -66,11 +66,15 @@ namespace SaveNet {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(219, 127);
+			this->label1->Location = System::Drawing::Point(219, 80);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(539, 67);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Enter the password";
+
+			String^ username = gcnew String(userName().c_str());
+			String^ full_pass_text = "Hi " + username + ",\n" + "Enter the password!";
+
+			this->label1->Text = full_pass_text;
 			// 
 			// passBox
 			// 

@@ -397,30 +397,13 @@ namespace SaveNet {
 			// 
 			// changePasswordToolStripMenuItem
 			// 
-			this->changePasswordToolStripMenuItem->Enabled = false;
 			this->changePasswordToolStripMenuItem->Name = L"changePasswordToolStripMenuItem";
 			this->changePasswordToolStripMenuItem->Size = System::Drawing::Size(423, 54);
 			this->changePasswordToolStripMenuItem->Text = L"Change password";
+			this->changePasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::changePasswordToolStripMenuItem_Click);
 			// 
 			// deletePasswordToolStripMenuItem
 			// 
-
-			bool checkpassfile;
-
-			std::ifstream file("password.txt");
-			checkpassfile = file.good();
-			
-			if (checkpassfile == true) {
-
-				this->deletePasswordToolStripMenuItem->Enabled = true;
-
-			}
-			else {
-
-				this->deletePasswordToolStripMenuItem->Enabled = false;
-
-			}
-
 			this->deletePasswordToolStripMenuItem->Name = L"deletePasswordToolStripMenuItem";
 			this->deletePasswordToolStripMenuItem->Size = System::Drawing::Size(423, 54);
 			this->deletePasswordToolStripMenuItem->Text = L"Delete password";
@@ -943,18 +926,56 @@ private: System::Void creatorToolStripMenuItem_Click(System::Object^ sender, Sys
 }
 private: System::Void deletePasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	System::Windows::Forms::DialogResult result = MessageBox::Show(
-		"Are you sure you want to delete the local password?",
-		"SaveNet",
-		MessageBoxButtons::YesNo,
-		MessageBoxIcon::Question);
+	if (checkpassfile() == true) {
 
-	if (result == System::Windows::Forms::DialogResult::Yes) {
+		System::Windows::Forms::DialogResult result = MessageBox::Show(
+			"Are you sure you want to delete the local password?",
+			"SaveNet",
+			MessageBoxButtons::YesNo,
+			MessageBoxIcon::Question);
 
-		DeletePassword();
+		if (result == System::Windows::Forms::DialogResult::Yes) {
+
+			DeletePassword();
+
+		}
+		else {
+
+		}
 
 	}
 	else {
+
+		MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+
+
+}
+private: System::Void changePasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ new_pass = inputMain->Text;
+	std::string new_pass_convert = ConvertString(new_pass);
+
+	if (checkpassfile() == true) {
+
+		if (String::IsNullOrEmpty(new_pass)) {
+
+			MessageBox::Show("Enter the new password in the input first!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			return;
+
+		}
+		else {
+
+			ChangePassword(new_pass_convert);
+			MessageBox::Show("New password setted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+
+	}
+	else {
+
+		MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 	}
 

@@ -21,3 +21,5 @@ void CreateUserFile(std::string filenameCU);
 void creator();
 std::string userName();
 void DeletePassword();
+void ChangePassword(std::string newpassword);
+bool checkpassfile();

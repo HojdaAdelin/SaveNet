@@ -24,3 +24,4 @@ void DeletePassword();
 void ChangePassword(std::string newpassword);
 bool checkpassfile();
 void BackUpPassword();
+std::string PasswordGenerator();

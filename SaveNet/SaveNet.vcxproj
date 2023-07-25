@@ -140,6 +140,7 @@
     <ClCompile Include="src\PasswordCheck.cpp" />
     <ClCompile Include="src\PasswordDecrypt.cpp" />
     <ClCompile Include="src\PasswordEncrypt.cpp" />
+    <ClCompile Include="src\PasswordGenerator.cpp" />
     <ClCompile Include="src\StrConvert.cpp" />
     <ClCompile Include="src\WriteTo.cpp" />
   </ItemGroup>

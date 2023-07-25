@@ -17,6 +17,6 @@ void creator() {
 
 void ChangeLog() {
 
-	MessageBox::Show("Version 1.1.5 Preview\n\n- Default theme reconfig\n- Local password P1\n- Password form\n- Local password function\n- New readme\n- Write to password.txt fix\n- Dropdown descriptions\n- Password input change\n- New file menu\n- Security menu\n- New write text layout\n- Creator function\n- User name in password form\n- New password security\n- Change password\n- Delete password\n- Fix clear password.txt\n- Backup password", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	MessageBox::Show("Version 1.2.0 Preview\n\n- Generate Password", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 }

@@ -23,3 +23,4 @@ std::string userName();
 void DeletePassword();
 void ChangePassword(std::string newpassword);
 bool checkpassfile();
+void BackUpPassword();

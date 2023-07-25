@@ -76,6 +76,7 @@ namespace SaveNet {
 	private: System::Windows::Forms::ToolStripMenuItem^ creatorToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ changePasswordToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ deletePasswordToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ backupPasswordToolStripMenuItem;
 
 
 
@@ -124,6 +125,7 @@ namespace SaveNet {
 			this->setLocalPasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->changePasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->deletePasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->backupPasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -154,7 +156,7 @@ namespace SaveNet {
 			this->encryptBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->encryptBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->encryptBtn->Location = System::Drawing::Point(60, 713);
+			this->encryptBtn->Location = System::Drawing::Point(60, 778);
 			this->encryptBtn->Name = L"encryptBtn";
 			this->encryptBtn->Size = System::Drawing::Size(306, 74);
 			this->encryptBtn->TabIndex = 2;
@@ -167,7 +169,7 @@ namespace SaveNet {
 			this->decryptBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->decryptBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->decryptBtn->Location = System::Drawing::Point(412, 713);
+			this->decryptBtn->Location = System::Drawing::Point(412, 778);
 			this->decryptBtn->Name = L"decryptBtn";
 			this->decryptBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->decryptBtn->Size = System::Drawing::Size(289, 74);
@@ -181,7 +183,7 @@ namespace SaveNet {
 			this->viewBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->viewBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->viewBtn->Location = System::Drawing::Point(748, 713);
+			this->viewBtn->Location = System::Drawing::Point(748, 778);
 			this->viewBtn->Name = L"viewBtn";
 			this->viewBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->viewBtn->Size = System::Drawing::Size(289, 74);
@@ -199,7 +201,7 @@ namespace SaveNet {
 			this->secondText->Multiline = true;
 			this->secondText->Name = L"secondText";
 			this->secondText->ReadOnly = true;
-			this->secondText->Size = System::Drawing::Size(891, 363);
+			this->secondText->Size = System::Drawing::Size(891, 415);
 			this->secondText->TabIndex = 5;
 			// 
 			// writeBtn
@@ -208,7 +210,7 @@ namespace SaveNet {
 			this->writeBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->writeBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->writeBtn->Location = System::Drawing::Point(412, 633);
+			this->writeBtn->Location = System::Drawing::Point(412, 687);
 			this->writeBtn->Name = L"writeBtn";
 			this->writeBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->writeBtn->Size = System::Drawing::Size(289, 74);
@@ -226,7 +228,7 @@ namespace SaveNet {
 			this->checkWrite->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->checkWrite->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->checkWrite->Location = System::Drawing::Point(60, 641);
+			this->checkWrite->Location = System::Drawing::Point(60, 695);
 			this->checkWrite->Name = L"checkWrite";
 			this->checkWrite->Size = System::Drawing::Size(231, 55);
 			this->checkWrite->TabIndex = 7;
@@ -239,7 +241,7 @@ namespace SaveNet {
 			this->clearBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->clearBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->clearBtn->Location = System::Drawing::Point(748, 633);
+			this->clearBtn->Location = System::Drawing::Point(748, 687);
 			this->clearBtn->Name = L"clearBtn";
 			this->clearBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->clearBtn->Size = System::Drawing::Size(289, 74);
@@ -371,9 +373,9 @@ namespace SaveNet {
 			// 
 			// securityToolStripMenuItem
 			// 
-			this->securityToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->securityToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->snExtensionToolStripMenuItem,
-					this->setLocalPasswordToolStripMenuItem, this->changePasswordToolStripMenuItem, this->deletePasswordToolStripMenuItem
+					this->setLocalPasswordToolStripMenuItem, this->changePasswordToolStripMenuItem, this->deletePasswordToolStripMenuItem, this->backupPasswordToolStripMenuItem
 			});
 			this->securityToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -408,6 +410,13 @@ namespace SaveNet {
 			this->deletePasswordToolStripMenuItem->Size = System::Drawing::Size(423, 54);
 			this->deletePasswordToolStripMenuItem->Text = L"Delete password";
 			this->deletePasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deletePasswordToolStripMenuItem_Click);
+			// 
+			// backupPasswordToolStripMenuItem
+			// 
+			this->backupPasswordToolStripMenuItem->Name = L"backupPasswordToolStripMenuItem";
+			this->backupPasswordToolStripMenuItem->Size = System::Drawing::Size(423, 54);
+			this->backupPasswordToolStripMenuItem->Text = L"Backup password";
+			this->backupPasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::backupPasswordToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -971,6 +980,20 @@ private: System::Void changePasswordToolStripMenuItem_Click(System::Object^ send
 			MessageBox::Show("New password setted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 		}
+
+	}
+	else {
+
+		MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+	}
+
+}
+private: System::Void backupPasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if (checkpassfile() == true) {
+
+		BackUpPassword();
 
 	}
 	else {

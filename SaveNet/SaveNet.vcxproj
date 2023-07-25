@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PasswordForm.cpp" />
+    <ClCompile Include="src\BackupPassword.cpp" />
     <ClCompile Include="src\ChangePassword.cpp" />
     <ClCompile Include="src\ClearFile.cpp" />
     <ClCompile Include="src\CreateFile.cpp" />

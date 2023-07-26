@@ -6,14 +6,31 @@ Main features are encrypt, decrypt, .sn extension, view, clear & create file.
 <img src="SaveNet/src/assets/sw.png" width="600px" height="500px">
 </p>
 
+# Build
+
+First clone this repo, then click on .sln file to open the project.\
+Make sure to install VS before this step.\
+Now to build the project nav to Build->Build the project.\
+Also make sure that the build mode is Release & 64.
+
 # Functions
 
 - Encrypt file
 - Decrypt file
 - Generate secure file
-- Clear, delete, view, write to file
+- Clear, delete, create, view, write to file
 - .sn extension use
 - Shortcuts
+- Local password
+- Password security
+- Usefull links
+- Change, delete, backup password
+
+# Local password
+
+For better security and prevent potential hacker activity I decided to implement a local password.\
+This password will allow the user to open the SaveNet application.\
+For how don't know this password SaveNet won't be opened so unauthorized person can't decrypt secured files.
 
 # Encrypt & Decrypt
 

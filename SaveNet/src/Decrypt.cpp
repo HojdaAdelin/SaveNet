@@ -1,73 +1,61 @@
 #include <iostream>
-#include <fstream>
 #include <windows.h>
 #include "Include.h"
+#include <string>
+#include <fstream>
 #include <stdio.h>
-#include <vector>
 
 void DecryptFileNet(std::string filenameW) {
+    if (filenameW == "password.txt") {
+        MessageBox::Show("Error: Can't decrypt password.txt!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        return;
+    }
+    else {
+        bool fresult = false;
 
-	if (filenameW == "password.txt") {
+        char xr;
+        std::fstream fin, fout;
 
-		MessageBox::Show("Error: Can't decrypt password.txt!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		return;
+        fin.open(filenameW, std::fstream::in);
 
-	}
-	else {
+        if (!fin) {
+            MessageBox::Show("Error: File can't be opened!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+            return;
+        }
+        fresult = true;
 
-		bool fresult, sresult;
-		std::vector<char> textto;
-		char xr;
-		std::fstream fin, fout, fxr;
-		fin.open(filenameW, std::fstream::out);
+        fout.open("other.txt", std::fstream::out);
 
-		if (!fin) {
+        if (!fout) {
+            MessageBox::Show("Error: Can't write to the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+            fin.close();
+            return;
+        }
+        
 
-			MessageBox::Show("Error: File can't be opened!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			return;
+        while (fin >> std::noskipws >> xr) {
 
-		}
-		fresult = true;
+           
+            xr = xr - (1000 * 8 + 45550 + 880 + 2222);
+            fout << xr;
 
-		fout.open("other.txt", std::fstream::in);
+        }
 
-		if (!fout) {
+        fin.close();
+        fout.close();
 
-			MessageBox::Show("Error: File can't be opened!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			fin.close();
-			return;
-		}
-		sresult = true;
+        fin.open("other.txt", std::fstream::in);
+        fout.open(filenameW, std::fstream::out);
 
-		while (fout >> std::noskipws >> xr) {
+        while (fin >> std::noskipws >> xr) {
+            fout << xr;
+        }
 
-			xr = xr - (1000 * 8 + 45550 + 880 + 2222);
-			fin << xr;
-			textto.push_back(xr);
+        fin.close();
+        fout.close();
 
-		}
-
-		fxr.open("other.txt", std::fstream::out);
-
-		for (char writeto : textto) {
-
-			fxr << writeto;
-
-		}
-
-		fin.close();
-		fout.close();
-		fxr.close();
-
-		if (fresult == true && sresult == true) {
-
-			MessageBox::Show("File decrypted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-		}
-
-	}
-
-	
-
-	
+        if (fresult) {
+            MessageBox::Show("File decrypted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        }
+    }
 }

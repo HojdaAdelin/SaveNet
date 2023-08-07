@@ -12,13 +12,10 @@ bool checkpassfile() {
 
 void ChangePassword(std::string newpassword) {
 
-	ClearFileContent("password.txt");
+	std::ofstream changepass("password.txt", std::ios::trunc);
 
+	changepass << newpassword;
 
-	std::ofstream writepassword("password.txt");
-
-	writepassword << newpassword;
-
-	writepassword.close();
+	changepass.close();
 
 }

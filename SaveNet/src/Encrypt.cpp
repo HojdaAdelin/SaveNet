@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 void EncryptFileNet(std::string filename) {
-	
+
 	if (filename == "password.txt") {
 
 		MessageBox::Show("Error: Can't encrypt password anymore!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
@@ -39,11 +39,16 @@ void EncryptFileNet(std::string filename) {
 		}
 		sresult = true;
 
+		
+
 		while (fin >> std::noskipws >> xr) {
 
+			
+			
 			xr = xr + (1000 * 8 + 45550 + 880 + 2222);
 			fout << xr;
 
+			
 		}
 
 		fin.close();

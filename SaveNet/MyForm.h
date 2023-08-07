@@ -78,6 +78,7 @@ namespace SaveNet {
 	private: System::Windows::Forms::ToolStripMenuItem^ deletePasswordToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ backupPasswordToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ generatePasswordToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ exitToolStripMenuItem;
 
 
 
@@ -128,6 +129,7 @@ namespace SaveNet {
 			this->deletePasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->backupPasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->generatePasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -269,9 +271,9 @@ namespace SaveNet {
 			// 
 			// homeToolStripMenuItem
 			// 
-			this->homeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->homeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->changeLogSub,
-					this->sourceToolSub, this->creatorToolStripMenuItem
+					this->sourceToolSub, this->creatorToolStripMenuItem, this->exitToolStripMenuItem
 			});
 			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -282,21 +284,21 @@ namespace SaveNet {
 			// changeLogSub
 			// 
 			this->changeLogSub->Name = L"changeLogSub";
-			this->changeLogSub->Size = System::Drawing::Size(322, 54);
+			this->changeLogSub->Size = System::Drawing::Size(359, 54);
 			this->changeLogSub->Text = L"Change log";
 			this->changeLogSub->Click += gcnew System::EventHandler(this, &MyForm::changeLogSub_Click);
 			// 
 			// sourceToolSub
 			// 
 			this->sourceToolSub->Name = L"sourceToolSub";
-			this->sourceToolSub->Size = System::Drawing::Size(322, 54);
+			this->sourceToolSub->Size = System::Drawing::Size(359, 54);
 			this->sourceToolSub->Text = L"Source";
 			this->sourceToolSub->Click += gcnew System::EventHandler(this, &MyForm::sourceToolSub_Click);
 			// 
 			// creatorToolStripMenuItem
 			// 
 			this->creatorToolStripMenuItem->Name = L"creatorToolStripMenuItem";
-			this->creatorToolStripMenuItem->Size = System::Drawing::Size(322, 54);
+			this->creatorToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->creatorToolStripMenuItem->Text = L"Creator";
 			this->creatorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::creatorToolStripMenuItem_Click);
 			// 
@@ -315,21 +317,21 @@ namespace SaveNet {
 			// generateFileToolStripMenuItem
 			// 
 			this->generateFileToolStripMenuItem->Name = L"generateFileToolStripMenuItem";
-			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->generateFileToolStripMenuItem->Text = L"Generate file";
 			this->generateFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generateFileToolStripMenuItem_Click);
 			// 
 			// deleteFileToolStripMenuItem
 			// 
 			this->deleteFileToolStripMenuItem->Name = L"deleteFileToolStripMenuItem";
-			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->deleteFileToolStripMenuItem->Text = L"Delete file";
 			this->deleteFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFileToolStripMenuItem_Click);
 			// 
 			// createFileToolStripMenuItem
 			// 
 			this->createFileToolStripMenuItem->Name = L"createFileToolStripMenuItem";
-			this->createFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->createFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->createFileToolStripMenuItem->Text = L"Create file";
 			this->createFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::createFileToolStripMenuItem_Click);
 			// 
@@ -427,6 +429,13 @@ namespace SaveNet {
 			this->generatePasswordToolStripMenuItem->Size = System::Drawing::Size(432, 54);
 			this->generatePasswordToolStripMenuItem->Text = L"Generate password";
 			this->generatePasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generatePasswordToolStripMenuItem_Click);
+			// 
+			// exitToolStripMenuItem
+			// 
+			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->exitToolStripMenuItem->Text = L"Exit";
+			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::exitToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -838,87 +847,35 @@ namespace SaveNet {
 
 		}
 
-		
+
 
 	}
-private: System::Void generateFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void generateFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	inputMain->Text = gcnew String(GenerateNameFile().c_str());
-
-}
-private: System::Void deleteFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	String^ filename = inputMain->Text;
-	std::string filename_convert = ConvertString(filename);
-
-	if (String::IsNullOrEmpty(filename)) {
-
-		MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		inputMain->Text = gcnew String(GenerateNameFile().c_str());
 
 	}
-	else {
-
-		System::Windows::Forms::DialogResult result = MessageBox::Show(
-			"Are you sure you want to delete the file?",
-			"SaveNet",
-			MessageBoxButtons::YesNo,
-			MessageBoxIcon::Question);
-
-		if (result == System::Windows::Forms::DialogResult::Yes) {
-
-			remove(filename_convert.c_str());
-
-		}
-		else {
-
-		}
-
-	}
-
-}
-private: System::Void snExtensionToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	String^ filename = inputMain->Text;
-	secondText->Clear();
-	std::string filename_convert = ConvertString(filename);
-
-	UseExtension(filename_convert);
-
-}
-private: System::Void setLocalPasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	std::ifstream check("password.txt");
-
-	bool result = check.good();
-
-	if (result == true) {
-
-		MessageBox::Show("Password already setted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		return;
-
-	}
-	else {
+	private: System::Void deleteFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		String^ filename = inputMain->Text;
 		std::string filename_convert = ConvertString(filename);
 
 		if (String::IsNullOrEmpty(filename)) {
 
-			MessageBox::Show("Enter the password first!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 		}
 		else {
 
 			System::Windows::Forms::DialogResult result = MessageBox::Show(
-				"Are you sure you want to set local password from the input?",
+				"Are you sure you want to delete the file?",
 				"SaveNet",
 				MessageBoxButtons::YesNo,
 				MessageBoxIcon::Question);
 
 			if (result == System::Windows::Forms::DialogResult::Yes) {
 
-				WritePassword(filename_convert);
-				EncryptPassword();
+				remove(filename_convert.c_str());
 
 			}
 			else {
@@ -928,131 +885,188 @@ private: System::Void setLocalPasswordToolStripMenuItem_Click(System::Object^ se
 		}
 
 	}
+	private: System::Void snExtensionToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-}
-private: System::Void createFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ filename = inputMain->Text;
+		secondText->Clear();
+		std::string filename_convert = ConvertString(filename);
 
-	String^ text = inputMain->Text;
-	std::string text_convert = ConvertString(text);
-
-	CreateUserFile(text_convert + ".txt");
-
-}
-private: System::Void creatorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	creator();
-
-}
-private: System::Void deletePasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	if (checkpassfile() == true) {
-
-		System::Windows::Forms::DialogResult result = MessageBox::Show(
-			"Are you sure you want to delete the local password?",
-			"SaveNet",
-			MessageBoxButtons::YesNo,
-			MessageBoxIcon::Question);
-
-		if (result == System::Windows::Forms::DialogResult::Yes) {
-
-			DeletePassword();
-
-		}
-		else {
-
-		}
+		UseExtension(filename_convert);
 
 	}
-	else {
+	private: System::Void setLocalPasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		std::ifstream check("password.txt");
 
-	}
+		bool result = check.good();
 
+		if (result == true) {
 
-}
-private: System::Void changePasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	String^ new_pass = inputMain->Text;
-	std::string new_pass_convert = ConvertString(new_pass);
-
-	if (checkpassfile() == true) {
-
-		if (String::IsNullOrEmpty(new_pass)) {
-
-			MessageBox::Show("Enter the new password in the input first!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("Password already setted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			return;
 
 		}
 		else {
 
-			ChangePassword(new_pass_convert);
-			MessageBox::Show("New password setted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			String^ filename = inputMain->Text;
+			std::string filename_convert = ConvertString(filename);
+
+			if (String::IsNullOrEmpty(filename)) {
+
+				MessageBox::Show("Enter the password first!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+			}
+			else {
+
+				System::Windows::Forms::DialogResult result = MessageBox::Show(
+					"Are you sure you want to set local password from the input?",
+					"SaveNet",
+					MessageBoxButtons::YesNo,
+					MessageBoxIcon::Question);
+
+				if (result == System::Windows::Forms::DialogResult::Yes) {
+
+					WritePassword(filename_convert);
+					EncryptPassword();
+
+				}
+				else {
+
+				}
+
+			}
 
 		}
 
 	}
-	else {
+	private: System::Void createFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		String^ text = inputMain->Text;
+		std::string text_convert = ConvertString(text);
 
-	}
-
-}
-private: System::Void backupPasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	if (checkpassfile() == true) {
-
-		BackUpPassword();
+		CreateUserFile(text_convert + ".txt");
 
 	}
-	else {
+	private: System::Void creatorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-	}
-
-}
-private: System::Void generatePasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	if (checkpassfile() == true) {
-
-		MessageBox::Show("Password already exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		creator();
 
 	}
-	else {
+	private: System::Void deletePasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		std::string input_text = PasswordGenerator();
-		String^ input_text_convert = gcnew String(input_text.c_str());
+		if (checkpassfile() == true) {
 
-		inputMain->Text = input_text_convert;
+			System::Windows::Forms::DialogResult result = MessageBox::Show(
+				"Are you sure you want to delete the local password?",
+				"SaveNet",
+				MessageBoxButtons::YesNo,
+				MessageBoxIcon::Question);
 
-		System::Windows::Forms::DialogResult result = MessageBox::Show(
-			"Are you sure you want to set the generated local password?",
-			"SaveNet",
-			MessageBoxButtons::YesNo,
-			MessageBoxIcon::Question);
+			if (result == System::Windows::Forms::DialogResult::Yes) {
 
-		if (result == System::Windows::Forms::DialogResult::Yes) {
+				DeletePassword();
 
-			std::ofstream writetopassfile("password.txt");
+			}
+			else {
 
-			writetopassfile << input_text;
-
-			writetopassfile.close();
-
-			SetFileAttributesA("password.txt", FILE_ATTRIBUTE_HIDDEN);
-
-			EncryptPassword();
+			}
 
 		}
 		else {
 
+			MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+
+
+	}
+	private: System::Void changePasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ new_pass = inputMain->Text;
+		std::string new_pass_convert = ConvertString(new_pass);
+
+		if (checkpassfile() == true) {
+
+			if (String::IsNullOrEmpty(new_pass)) {
+
+				MessageBox::Show("Enter the new password in the input first!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+				return;
+
+			}
+			else {
+
+				ChangePassword(new_pass_convert);
+				MessageBox::Show("New password setted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+			}
+
+		}
+		else {
+
+			MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 		}
 
 	}
+	private: System::Void backupPasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-}
+		if (checkpassfile() == true) {
+
+			BackUpPassword();
+
+		}
+		else {
+
+			MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+
+	}
+	private: System::Void generatePasswordToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		if (checkpassfile() == true) {
+
+			MessageBox::Show("Password already exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		}
+		else {
+
+			std::string input_text = PasswordGenerator();
+			String^ input_text_convert = gcnew String(input_text.c_str());
+
+			inputMain->Text = input_text_convert;
+
+			System::Windows::Forms::DialogResult result = MessageBox::Show(
+				"Are you sure you want to set the generated local password?",
+				"SaveNet",
+				MessageBoxButtons::YesNo,
+				MessageBoxIcon::Question);
+
+			if (result == System::Windows::Forms::DialogResult::Yes) {
+
+				std::ofstream writetopassfile("password.txt");
+
+				writetopassfile << input_text;
+
+				writetopassfile.close();
+
+				SetFileAttributesA("password.txt", FILE_ATTRIBUTE_HIDDEN);
+
+				EncryptPassword();
+
+			}
+			else {
+
+
+			}
+
+		}
+
+	}
+	private: System::Void exitToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		this->Close();
+
+	}
 };
 }

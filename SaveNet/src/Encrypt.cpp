@@ -11,6 +11,8 @@ void EncryptFileNet(std::string filename) {
 
 	bool miscResult = checkForMisc.good();
 
+	checkForMisc.close();
+
 	if (filename == "password.txt") {
 
 		MessageBox::Show("Error: Can't encrypt password anymore!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);

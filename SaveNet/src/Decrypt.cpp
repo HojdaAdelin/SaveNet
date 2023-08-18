@@ -12,6 +12,8 @@ void DecryptFileNet(std::string filenameW) {
 
     bool miscResult = checkMisc.good();
 
+    checkMisc.close();
+
     if (filenameW == "password.txt") {
         MessageBox::Show("Error: Can't decrypt password.txt!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
         return;

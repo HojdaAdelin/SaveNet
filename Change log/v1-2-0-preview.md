@@ -16,6 +16,7 @@ Change:
 - Main form redesign
 - Main window is now on center of the screen
 - For decrypt & encrypt message box, now is more simple 
+- Bigger icon
 
 Fix:
 

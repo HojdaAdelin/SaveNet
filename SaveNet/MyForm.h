@@ -1,5 +1,6 @@
 #pragma once
 #include "src/Include.h"
+#include "src/GUI/SetPassword.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -85,6 +86,7 @@ namespace SaveNet {
 
 
 
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -113,6 +115,7 @@ namespace SaveNet {
 			this->changeLogSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->sourceToolSub = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->creatorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->fileToolMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->generateFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->deleteFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -129,7 +132,6 @@ namespace SaveNet {
 			this->deletePasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->backupPasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->generatePasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -205,6 +207,7 @@ namespace SaveNet {
 			this->secondText->Multiline = true;
 			this->secondText->Name = L"secondText";
 			this->secondText->ReadOnly = true;
+			this->secondText->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->secondText->Size = System::Drawing::Size(891, 415);
 			this->secondText->TabIndex = 5;
 			// 
@@ -284,23 +287,30 @@ namespace SaveNet {
 			// changeLogSub
 			// 
 			this->changeLogSub->Name = L"changeLogSub";
-			this->changeLogSub->Size = System::Drawing::Size(359, 54);
+			this->changeLogSub->Size = System::Drawing::Size(322, 54);
 			this->changeLogSub->Text = L"Change log";
 			this->changeLogSub->Click += gcnew System::EventHandler(this, &MyForm::changeLogSub_Click);
 			// 
 			// sourceToolSub
 			// 
 			this->sourceToolSub->Name = L"sourceToolSub";
-			this->sourceToolSub->Size = System::Drawing::Size(359, 54);
+			this->sourceToolSub->Size = System::Drawing::Size(322, 54);
 			this->sourceToolSub->Text = L"Source";
 			this->sourceToolSub->Click += gcnew System::EventHandler(this, &MyForm::sourceToolSub_Click);
 			// 
 			// creatorToolStripMenuItem
 			// 
 			this->creatorToolStripMenuItem->Name = L"creatorToolStripMenuItem";
-			this->creatorToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->creatorToolStripMenuItem->Size = System::Drawing::Size(322, 54);
 			this->creatorToolStripMenuItem->Text = L"Creator";
 			this->creatorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::creatorToolStripMenuItem_Click);
+			// 
+			// exitToolStripMenuItem
+			// 
+			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(322, 54);
+			this->exitToolStripMenuItem->Text = L"Exit";
+			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::exitToolStripMenuItem_Click);
 			// 
 			// fileToolMenu
 			// 
@@ -317,21 +327,21 @@ namespace SaveNet {
 			// generateFileToolStripMenuItem
 			// 
 			this->generateFileToolStripMenuItem->Name = L"generateFileToolStripMenuItem";
-			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
 			this->generateFileToolStripMenuItem->Text = L"Generate file";
 			this->generateFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generateFileToolStripMenuItem_Click);
 			// 
 			// deleteFileToolStripMenuItem
 			// 
 			this->deleteFileToolStripMenuItem->Name = L"deleteFileToolStripMenuItem";
-			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
 			this->deleteFileToolStripMenuItem->Text = L"Delete file";
 			this->deleteFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFileToolStripMenuItem_Click);
 			// 
 			// createFileToolStripMenuItem
 			// 
 			this->createFileToolStripMenuItem->Name = L"createFileToolStripMenuItem";
-			this->createFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->createFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
 			this->createFileToolStripMenuItem->Text = L"Create file";
 			this->createFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::createFileToolStripMenuItem_Click);
 			// 
@@ -429,13 +439,6 @@ namespace SaveNet {
 			this->generatePasswordToolStripMenuItem->Size = System::Drawing::Size(432, 54);
 			this->generatePasswordToolStripMenuItem->Text = L"Generate password";
 			this->generatePasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generatePasswordToolStripMenuItem_Click);
-			// 
-			// exitToolStripMenuItem
-			// 
-			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(359, 54);
-			this->exitToolStripMenuItem->Text = L"Exit";
-			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::exitToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -908,33 +911,8 @@ namespace SaveNet {
 		}
 		else {
 
-			String^ filename = inputMain->Text;
-			std::string filename_convert = ConvertString(filename);
-
-			if (String::IsNullOrEmpty(filename)) {
-
-				MessageBox::Show("Enter the password first!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-			}
-			else {
-
-				System::Windows::Forms::DialogResult result = MessageBox::Show(
-					"Are you sure you want to set local password from the input?",
-					"SaveNet",
-					MessageBoxButtons::YesNo,
-					MessageBoxIcon::Question);
-
-				if (result == System::Windows::Forms::DialogResult::Yes) {
-
-					WritePassword(filename_convert);
-					EncryptPassword();
-
-				}
-				else {
-
-				}
-
-			}
+			SetPassword^ newSetPassword = gcnew SetPassword();
+			newSetPassword->Show();
 
 		}
 
@@ -1068,5 +1046,11 @@ namespace SaveNet {
 		this->Close();
 
 	}
+private: System::Void testToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	SetPassword^ newSetPassword = gcnew SetPassword();
+	newSetPassword->Show();
+
+}
 };
 }

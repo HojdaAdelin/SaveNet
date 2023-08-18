@@ -17,6 +17,6 @@ void creator() {
 
 void ChangeLog() {
 
-	MessageBox::Show("Version 1.2.0 Preview\n\n- Generate Password", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	MessageBox::Show("Version 1.2.0 Preview\n\n- Generate Password\n-Enter button\n-Exit function", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 }

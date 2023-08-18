@@ -136,6 +136,7 @@
     <ClCompile Include="src\Extension.cpp" />
     <ClCompile Include="src\FileSecurity.cpp" />
     <ClCompile Include="src\GetUserName.cpp" />
+    <ClCompile Include="src\GUI\SetPassword.cpp" />
     <ClCompile Include="src\Help.cpp" />
     <ClCompile Include="src\PasswordCheck.cpp" />
     <ClCompile Include="src\PasswordDecrypt.cpp" />
@@ -151,6 +152,9 @@
     <ClInclude Include="PasswordForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="src\GUI\SetPassword.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="src\Include.h" />
     <ClInclude Include="src\Password.h" />
   </ItemGroup>
@@ -160,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PasswordForm.resx">
       <DependentUpon>PasswordForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\GUI\SetPassword.resx">
+      <DependentUpon>src\GUI\SetPassword.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

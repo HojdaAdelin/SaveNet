@@ -112,6 +112,7 @@ namespace SaveNet {
 			this->MinimumSize = System::Drawing::Size(1000, 800);
 			this->Name = L"PasswordForm";
 			this->Text = L"SaveNet - Password";
+			this->AcceptButton = passCheck;
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -119,18 +120,25 @@ namespace SaveNet {
 #pragma endregion
 	private: System::Void passCheck_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		String^ enteredPassword = passBox->Text;
-		std::string pass_convert = ConvertString(enteredPassword);
 
-		if (PasswordConfirm(pass_convert))
-		{
-			this->DialogResult = System::Windows::Forms::DialogResult::OK;
-			this->Close();
-		}
-		else
-		{
-			MessageBox::Show("Incorrect password. Please try again.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		}
+		
+			String^ enteredPassword = passBox->Text;
+			std::string pass_convert = ConvertString(enteredPassword);
+
+			if (PasswordConfirm(pass_convert)) {
+				this->DialogResult = System::Windows::Forms::DialogResult::OK;
+				this->Close();
+				
+
+			}
+			else {
+
+				MessageBox::Show("Incorrect password. Please try again.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+
+			}
+
+		
+
 
 	}
 	};

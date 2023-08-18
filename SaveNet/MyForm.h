@@ -268,7 +268,7 @@ namespace SaveNet {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1097, 53);
+			this->menuStrip1->Size = System::Drawing::Size(1097, 57);
 			this->menuStrip1->TabIndex = 12;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -281,7 +281,7 @@ namespace SaveNet {
 			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->homeToolStripMenuItem->Name = L"homeToolStripMenuItem";
-			this->homeToolStripMenuItem->Size = System::Drawing::Size(127, 49);
+			this->homeToolStripMenuItem->Size = System::Drawing::Size(127, 53);
 			this->homeToolStripMenuItem->Text = L"Home";
 			// 
 			// changeLogSub
@@ -321,7 +321,7 @@ namespace SaveNet {
 			this->fileToolMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->fileToolMenu->Name = L"fileToolMenu";
-			this->fileToolMenu->Size = System::Drawing::Size(89, 49);
+			this->fileToolMenu->Size = System::Drawing::Size(89, 53);
 			this->fileToolMenu->Text = L"File";
 			// 
 			// generateFileToolStripMenuItem
@@ -354,7 +354,7 @@ namespace SaveNet {
 			this->shortcutsMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->shortcutsMenu->Name = L"shortcutsMenu";
-			this->shortcutsMenu->Size = System::Drawing::Size(174, 49);
+			this->shortcutsMenu->Size = System::Drawing::Size(174, 53);
 			this->shortcutsMenu->Text = L"Shortcuts";
 			// 
 			// decryptViewSub
@@ -395,7 +395,7 @@ namespace SaveNet {
 			this->securityToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->securityToolStripMenuItem->Name = L"securityToolStripMenuItem";
-			this->securityToolStripMenuItem->Size = System::Drawing::Size(152, 49);
+			this->securityToolStripMenuItem->Size = System::Drawing::Size(152, 53);
 			this->securityToolStripMenuItem->Text = L"Security";
 			// 
 			// snExtensionToolStripMenuItem
@@ -460,6 +460,7 @@ namespace SaveNet {
 			this->MaximumSize = System::Drawing::Size(1123, 950);
 			this->MinimumSize = System::Drawing::Size(1123, 950);
 			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"SaveNet";
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
@@ -542,37 +543,72 @@ namespace SaveNet {
 #pragma endregion
 	private: System::Void encryptBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		String^ file_name = inputMain->Text;
-		std::string file_name_convert = ConvertString(file_name);
-		EncryptFileNet(file_name_convert);
+		if (String::IsNullOrEmpty(inputMain->Text)) {
+
+			MessageBox::Show("Enter the file name first!", "Save Net");
+			return;
+
+		}
+		else {
+
+			String^ file_name = inputMain->Text;
+			std::string file_name_convert = ConvertString(file_name);
+			EncryptFileNet(file_name_convert);
+
+		}
+
+		
 
 	}
 	private: System::Void decryptBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		if (String::IsNullOrEmpty(inputMain->Text)) {
 
-		String^ file_name = inputMain->Text;
-		std::string file_name_convert = ConvertString(file_name);
-		DecryptFileNet(file_name_convert);
+			MessageBox::Show("Enter the file name first!", "Save Net");
+			return;
+
+		}
+		else {
+
+			String^ file_name = inputMain->Text;
+			std::string file_name_convert = ConvertString(file_name);
+			DecryptFileNet(file_name_convert);
+
+		}
+
+		
 
 	}
 	private: System::Void viewBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		secondText->Clear();
-		String^ file_name = inputMain->Text;
-		std::string file_name_convert = ConvertString(file_name);
-		std::string getLineFromFile;
-		std::string fileCount;
+		if (String::IsNullOrEmpty(inputMain->Text)) {
 
-		std::ifstream read(file_name_convert);
+			MessageBox::Show("Enter the file name first!", "Save Net");
+			return;
 
-		while (std::getline(read, getLineFromFile)) {
+		}
+		else {
 
-			fileCount += getLineFromFile + "\r\n";
+			secondText->Clear();
+			String^ file_name = inputMain->Text;
+			std::string file_name_convert = ConvertString(file_name);
+			std::string getLineFromFile;
+			std::string fileCount;
+
+			std::ifstream read(file_name_convert);
+
+			while (std::getline(read, getLineFromFile)) {
+
+				fileCount += getLineFromFile + "\r\n";
+
+			}
+
+			read.close();
+
+			secondText->Text = gcnew String(fileCount.c_str());
 
 		}
 
-		read.close();
-
-		secondText->Text = gcnew String(fileCount.c_str());
 
 	}
 	private: System::Void checkWrite_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {

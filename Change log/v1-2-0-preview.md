@@ -14,3 +14,9 @@ Change:
 - README
 - Changelog name
 - Main form redesign
+- Main window is now on center of the screen
+
+Fix:
+
+- View button now look for main input if is null
+- If main input is null the encrypt & decrypt won't run now

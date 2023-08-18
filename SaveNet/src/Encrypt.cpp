@@ -7,9 +7,19 @@
 
 void EncryptFileNet(std::string filename) {
 
+	std::ifstream checkForMisc("misc" + filename);
+
+	bool miscResult = checkForMisc.good();
+
 	if (filename == "password.txt") {
 
 		MessageBox::Show("Error: Can't encrypt password anymore!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		return;
+
+	}
+	else if (miscResult == true) {
+
+		MessageBox::Show("The file can't be encrypted twice!", "Save Net");
 		return;
 
 	}
@@ -28,7 +38,7 @@ void EncryptFileNet(std::string filename) {
 		}
 		fresult = true;
 
-		fout.open("other.txt", std::fstream::out);
+		fout.open("misc" + filename, std::fstream::out);
 
 		if (!fout) {
 
@@ -55,7 +65,7 @@ void EncryptFileNet(std::string filename) {
 		fout.close();
 
 		fin.open(filename, std::fstream::out);
-		fout.open("other.txt", std::fstream::in);
+		fout.open("misc" + filename, std::fstream::in);
 
 		while (fout >> std::noskipws >> xr) {
 
@@ -68,7 +78,7 @@ void EncryptFileNet(std::string filename) {
 
 		if (fresult == true && sresult == true) {
 
-			MessageBox::Show("File encrypted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("File encrypted!", "SaveNet");
 
 		}
 

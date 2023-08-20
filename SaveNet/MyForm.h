@@ -1,6 +1,7 @@
 #pragma once
 #include "src/Include.h"
 #include "src/GUI/SetPassword.h"
+#include "src/GUI/ChangeLocalPassword.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -988,7 +989,7 @@ namespace SaveNet {
 		}
 		else {
 
-			MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("Password doesn't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 		}
 
@@ -1001,23 +1002,13 @@ namespace SaveNet {
 
 		if (checkpassfile() == true) {
 
-			if (String::IsNullOrEmpty(new_pass)) {
-
-				MessageBox::Show("Enter the new password in the input first!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-				return;
-
-			}
-			else {
-
-				ChangePassword(new_pass_convert);
-				MessageBox::Show("New password setted!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-			}
+			ChangeLocalPassword^ newChangeLocalPassword = gcnew ChangeLocalPassword();
+			newChangeLocalPassword->Show();
 
 		}
 		else {
 
-			MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("Password doesn't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 		}
 
@@ -1031,7 +1022,7 @@ namespace SaveNet {
 		}
 		else {
 
-			MessageBox::Show("Password don't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("Password doesn't exist!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 		}
 

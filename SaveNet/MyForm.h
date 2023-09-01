@@ -956,10 +956,20 @@ namespace SaveNet {
 	}
 	private: System::Void createFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		String^ text = inputMain->Text;
-		std::string text_convert = ConvertString(text);
+		if (String::IsNullOrEmpty(inputMain->Text)) {
 
-		CreateUserFile(text_convert + ".txt");
+			MessageBox::Show("Enter the name of the file first!", "SaveNet");
+
+		}
+		else {
+
+			String^ text = inputMain->Text;
+			std::string text_convert = ConvertString(text);
+
+			CreateUserFile(text_convert + ".txt");
+
+		}
+
 
 	}
 	private: System::Void creatorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {

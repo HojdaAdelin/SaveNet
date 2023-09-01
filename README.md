@@ -1,7 +1,7 @@
 # SaveNet
 
 Secure your files with SaveNet. With its GUI created in CLI it's more easy to secure yourself.\
-Main features are encrypt, decrypt, .sn extension, view, clear & create file.
+Main features are encrypt, decrypt, .sn extension, view, clear & create files.
 <p align="center">
 <img src="SaveNet/src/assets/sw.png" width="600px" height="500px">
 </p>
@@ -30,7 +30,7 @@ Also make sure that the build mode is Release & 64.
 
 For better security and prevent potential hacker activity I decided to implement a local password.\
 This password will allow the user to open the SaveNet application.\
-For how don't know this password SaveNet won't be opened so unauthorized person can't decrypt secured files.
+For who don't know this password SaveNet won't be opened so unauthorized person can't decrypt secured files.
 
 # Encrypt & Decrypt
 

@@ -17,6 +17,6 @@ void creator() {
 
 void ChangeLog() {
 
-	MessageBox::Show("Version 1.3.0 Preview\n\n- Fixed creating file extension", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	MessageBox::Show("Version 1.3.0 Preview\n\n- Fixed creating file extension\n- New info box for generated file", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 }

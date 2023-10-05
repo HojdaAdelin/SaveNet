@@ -24,7 +24,7 @@ std::string GenerateNameFile() {
 	}
 
 	OpenFile(filename + ".txt");
-	MessageBox::Show("File generated!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	MessageBox::Show("File generated!", "SaveNet");
 
 
 	return filename + ".txt";

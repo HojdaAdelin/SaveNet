@@ -966,7 +966,13 @@ namespace SaveNet {
 			String^ text = inputMain->Text;
 			std::string text_convert = ConvertString(text);
 
-			CreateUserFile(text_convert + ".txt");
+			if (text_convert.find(".") == std::string::npos) {
+
+				text_convert += ".txt";
+
+			}
+
+			CreateUserFile(text_convert);
 
 		}
 

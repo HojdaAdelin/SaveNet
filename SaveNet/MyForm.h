@@ -152,6 +152,7 @@ namespace SaveNet {
 			// 
 			// encryptBtn
 			// 
+			this->encryptBtn->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->encryptBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->encryptBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -160,11 +161,12 @@ namespace SaveNet {
 			this->encryptBtn->Size = System::Drawing::Size(306, 74);
 			this->encryptBtn->TabIndex = 2;
 			this->encryptBtn->Text = L"Encrypt";
-			this->encryptBtn->UseVisualStyleBackColor = true;
+			this->encryptBtn->UseVisualStyleBackColor = false;
 			this->encryptBtn->Click += gcnew System::EventHandler(this, &MyForm::encryptBtn_Click);
 			// 
 			// decryptBtn
 			// 
+			this->decryptBtn->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->decryptBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->decryptBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -174,11 +176,12 @@ namespace SaveNet {
 			this->decryptBtn->Size = System::Drawing::Size(305, 74);
 			this->decryptBtn->TabIndex = 3;
 			this->decryptBtn->Text = L"Decrypt";
-			this->decryptBtn->UseVisualStyleBackColor = true;
+			this->decryptBtn->UseVisualStyleBackColor = false;
 			this->decryptBtn->Click += gcnew System::EventHandler(this, &MyForm::decryptBtn_Click);
 			// 
 			// viewBtn
 			// 
+			this->viewBtn->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->viewBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->viewBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -188,11 +191,12 @@ namespace SaveNet {
 			this->viewBtn->Size = System::Drawing::Size(297, 74);
 			this->viewBtn->TabIndex = 4;
 			this->viewBtn->Text = L"View";
-			this->viewBtn->UseVisualStyleBackColor = true;
+			this->viewBtn->UseVisualStyleBackColor = false;
 			this->viewBtn->Click += gcnew System::EventHandler(this, &MyForm::viewBtn_Click);
 			// 
 			// secondText
 			// 
+			this->secondText->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->secondText->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->secondText->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -206,6 +210,7 @@ namespace SaveNet {
 			// 
 			// writeBtn
 			// 
+			this->writeBtn->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->writeBtn->Enabled = false;
 			this->writeBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->writeBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -216,7 +221,7 @@ namespace SaveNet {
 			this->writeBtn->Size = System::Drawing::Size(305, 74);
 			this->writeBtn->TabIndex = 6;
 			this->writeBtn->Text = L"Write";
-			this->writeBtn->UseVisualStyleBackColor = true;
+			this->writeBtn->UseVisualStyleBackColor = false;
 			this->writeBtn->Click += gcnew System::EventHandler(this, &MyForm::writeBtn_Click);
 			// 
 			// checkWrite
@@ -238,6 +243,7 @@ namespace SaveNet {
 			// 
 			// clearBtn
 			// 
+			this->clearBtn->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->clearBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->clearBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -247,12 +253,12 @@ namespace SaveNet {
 			this->clearBtn->Size = System::Drawing::Size(297, 74);
 			this->clearBtn->TabIndex = 8;
 			this->clearBtn->Text = L"Clear Text";
-			this->clearBtn->UseVisualStyleBackColor = true;
+			this->clearBtn->UseVisualStyleBackColor = false;
 			this->clearBtn->Click += gcnew System::EventHandler(this, &MyForm::clearBtn_Click);
 			// 
 			// menuStrip1
 			// 
-			this->menuStrip1->BackColor = System::Drawing::SystemColors::Control;
+			this->menuStrip1->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
@@ -437,6 +443,7 @@ namespace SaveNet {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::WhiteSmoke;
 			this->ClientSize = System::Drawing::Size(1097, 879);
 			this->Controls->Add(this->clearBtn);
 			this->Controls->Add(this->checkWrite);

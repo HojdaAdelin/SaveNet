@@ -81,6 +81,8 @@ namespace SaveNet {
 	private: System::Windows::Forms::ToolStripMenuItem^ backupPasswordToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ generatePasswordToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ exitToolStripMenuItem;
+	private: System::Windows::Forms::ComboBox^ main_combo_box;
+
 
 
 
@@ -132,6 +134,7 @@ namespace SaveNet {
 			this->deletePasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->backupPasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->generatePasswordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->main_combo_box = (gcnew System::Windows::Forms::ComboBox());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -144,7 +147,7 @@ namespace SaveNet {
 			this->inputMain->ForeColor = System::Drawing::SystemColors::WindowFrame;
 			this->inputMain->Location = System::Drawing::Point(19, 66);
 			this->inputMain->Name = L"inputMain";
-			this->inputMain->Size = System::Drawing::Size(1055, 80);
+			this->inputMain->Size = System::Drawing::Size(913, 80);
 			this->inputMain->TabIndex = 0;
 			this->inputMain->Text = L"File name...";
 			this->inputMain->Enter += gcnew System::EventHandler(this, &MyForm::inputMain_Enter);
@@ -286,28 +289,28 @@ namespace SaveNet {
 			// changeLogSub
 			// 
 			this->changeLogSub->Name = L"changeLogSub";
-			this->changeLogSub->Size = System::Drawing::Size(322, 54);
+			this->changeLogSub->Size = System::Drawing::Size(359, 54);
 			this->changeLogSub->Text = L"Change log";
 			this->changeLogSub->Click += gcnew System::EventHandler(this, &MyForm::changeLogSub_Click);
 			// 
 			// sourceToolSub
 			// 
 			this->sourceToolSub->Name = L"sourceToolSub";
-			this->sourceToolSub->Size = System::Drawing::Size(322, 54);
+			this->sourceToolSub->Size = System::Drawing::Size(359, 54);
 			this->sourceToolSub->Text = L"Source";
 			this->sourceToolSub->Click += gcnew System::EventHandler(this, &MyForm::sourceToolSub_Click);
 			// 
 			// creatorToolStripMenuItem
 			// 
 			this->creatorToolStripMenuItem->Name = L"creatorToolStripMenuItem";
-			this->creatorToolStripMenuItem->Size = System::Drawing::Size(322, 54);
+			this->creatorToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->creatorToolStripMenuItem->Text = L"Creator";
 			this->creatorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::creatorToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(322, 54);
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->exitToolStripMenuItem->Text = L"Exit";
 			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::exitToolStripMenuItem_Click);
 			// 
@@ -326,21 +329,21 @@ namespace SaveNet {
 			// generateFileToolStripMenuItem
 			// 
 			this->generateFileToolStripMenuItem->Name = L"generateFileToolStripMenuItem";
-			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->generateFileToolStripMenuItem->Text = L"Generate file";
 			this->generateFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generateFileToolStripMenuItem_Click);
 			// 
 			// deleteFileToolStripMenuItem
 			// 
 			this->deleteFileToolStripMenuItem->Name = L"deleteFileToolStripMenuItem";
-			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->deleteFileToolStripMenuItem->Text = L"Delete file";
 			this->deleteFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFileToolStripMenuItem_Click);
 			// 
 			// createFileToolStripMenuItem
 			// 
 			this->createFileToolStripMenuItem->Name = L"createFileToolStripMenuItem";
-			this->createFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->createFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
 			this->createFileToolStripMenuItem->Text = L"Create file";
 			this->createFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::createFileToolStripMenuItem_Click);
 			// 
@@ -439,12 +442,26 @@ namespace SaveNet {
 			this->generatePasswordToolStripMenuItem->Text = L"Generate password";
 			this->generatePasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generatePasswordToolStripMenuItem_Click);
 			// 
+			// main_combo_box
+			// 
+			this->main_combo_box->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->main_combo_box->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->main_combo_box->FormattingEnabled = true;
+			this->main_combo_box->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L".cfg", L".sn", L".ini", L".cpp" });
+			this->main_combo_box->Location = System::Drawing::Point(938, 66);
+			this->main_combo_box->Name = L"main_combo_box";
+			this->main_combo_box->Size = System::Drawing::Size(147, 81);
+			this->main_combo_box->TabIndex = 13;
+			this->main_combo_box->Text = L".txt";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::WhiteSmoke;
 			this->ClientSize = System::Drawing::Size(1097, 879);
+			this->Controls->Add(this->main_combo_box);
 			this->Controls->Add(this->clearBtn);
 			this->Controls->Add(this->checkWrite);
 			this->Controls->Add(this->writeBtn);

@@ -10,7 +10,7 @@ namespace SaveNet {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	
+
 
 	/// <summary>
 	/// Summary for PasswordForm
@@ -46,7 +46,7 @@ namespace SaveNet {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -63,37 +63,37 @@ namespace SaveNet {
 			// 
 			// label1
 			// 
+			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(219, 80);
+			this->label1->Location = System::Drawing::Point(113, 162);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(539, 67);
+			this->label1->Size = System::Drawing::Size(46, 51);
 			this->label1->TabIndex = 0;
-
-			String^ username = gcnew String(userName().c_str());
-			String^ full_pass_text = "Hi " + username + ",\n" + "Enter the password!";
-
-			this->label1->Text = full_pass_text;
+			this->label1->Text = L"1";
 			// 
 			// passBox
 			// 
 			this->passBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->passBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->passBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->passBox->Location = System::Drawing::Point(220, 222);
+			this->passBox->Location = System::Drawing::Point(120, 222);
 			this->passBox->Name = L"passBox";
-			this->passBox->Size = System::Drawing::Size(529, 86);
+			this->passBox->Size = System::Drawing::Size(725, 74);
 			this->passBox->TabIndex = 1;
 			// 
 			// passCheck
 			// 
 			this->passCheck->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->passCheck->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->passCheck->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->passCheck->Location = System::Drawing::Point(346, 354);
+			this->passCheck->Location = System::Drawing::Point(328, 330);
 			this->passCheck->Name = L"passCheck";
-			this->passCheck->Size = System::Drawing::Size(260, 71);
+			this->passCheck->Size = System::Drawing::Size(304, 71);
 			this->passCheck->TabIndex = 2;
 			this->passCheck->Text = L"Enter";
 			this->passCheck->UseVisualStyleBackColor = true;
@@ -101,18 +101,24 @@ namespace SaveNet {
 			// 
 			// PasswordForm
 			// 
+			this->AcceptButton = this->passCheck;
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->ClientSize = System::Drawing::Size(974, 729);
 			this->Controls->Add(this->passCheck);
 			this->Controls->Add(this->passBox);
 			this->Controls->Add(this->label1);
+			this->DoubleBuffered = true;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(1000, 800);
 			this->MinimumSize = System::Drawing::Size(1000, 800);
 			this->Name = L"PasswordForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"SaveNet - Password";
-			this->AcceptButton = passCheck;
+			this->Load += gcnew System::EventHandler(this, &PasswordForm::PasswordForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -121,24 +127,31 @@ namespace SaveNet {
 	private: System::Void passCheck_Click(System::Object^ sender, System::EventArgs^ e) {
 
 
-		
-			String^ enteredPassword = passBox->Text;
-			std::string pass_convert = ConvertString(enteredPassword);
 
-			if (PasswordConfirm(pass_convert)) {
-				this->DialogResult = System::Windows::Forms::DialogResult::OK;
-				this->Close();
-				
+		String^ enteredPassword = passBox->Text;
+		std::string pass_convert = ConvertString(enteredPassword);
 
-			}
-			else {
+		if (PasswordConfirm(pass_convert)) {
+			this->DialogResult = System::Windows::Forms::DialogResult::OK;
+			this->Close();
 
-				MessageBox::Show("Incorrect password. Please try again.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 
-			}
+		}
+		else {
 
-		
+			MessageBox::Show("Incorrect password. Please try again.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 
+		}
+
+
+
+
+	}
+	private: System::Void PasswordForm_Load(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ username = gcnew String(userName().c_str());
+		String^ full_pass_text = "Hi " + username + ", " + "Enter the password!";
+		label1->Text = full_pass_text;
 
 	}
 	};

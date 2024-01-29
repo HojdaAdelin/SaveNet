@@ -266,7 +266,7 @@ namespace SaveNet {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1097, 57);
+			this->menuStrip1->Size = System::Drawing::Size(1097, 58);
 			this->menuStrip1->TabIndex = 12;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -276,37 +276,37 @@ namespace SaveNet {
 				this->changeLogSub,
 					this->sourceToolSub, this->creatorToolStripMenuItem, this->exitToolStripMenuItem
 			});
-			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->homeToolStripMenuItem->Name = L"homeToolStripMenuItem";
-			this->homeToolStripMenuItem->Size = System::Drawing::Size(127, 53);
+			this->homeToolStripMenuItem->Size = System::Drawing::Size(141, 54);
 			this->homeToolStripMenuItem->Text = L"Home";
 			// 
 			// changeLogSub
 			// 
 			this->changeLogSub->Name = L"changeLogSub";
-			this->changeLogSub->Size = System::Drawing::Size(322, 54);
+			this->changeLogSub->Size = System::Drawing::Size(351, 58);
 			this->changeLogSub->Text = L"Change log";
 			this->changeLogSub->Click += gcnew System::EventHandler(this, &MyForm::changeLogSub_Click);
 			// 
 			// sourceToolSub
 			// 
 			this->sourceToolSub->Name = L"sourceToolSub";
-			this->sourceToolSub->Size = System::Drawing::Size(322, 54);
+			this->sourceToolSub->Size = System::Drawing::Size(351, 58);
 			this->sourceToolSub->Text = L"Source";
 			this->sourceToolSub->Click += gcnew System::EventHandler(this, &MyForm::sourceToolSub_Click);
 			// 
 			// creatorToolStripMenuItem
 			// 
 			this->creatorToolStripMenuItem->Name = L"creatorToolStripMenuItem";
-			this->creatorToolStripMenuItem->Size = System::Drawing::Size(322, 54);
+			this->creatorToolStripMenuItem->Size = System::Drawing::Size(351, 58);
 			this->creatorToolStripMenuItem->Text = L"Creator";
 			this->creatorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::creatorToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(322, 54);
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(351, 58);
 			this->exitToolStripMenuItem->Text = L"Exit";
 			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::exitToolStripMenuItem_Click);
 			// 
@@ -316,30 +316,30 @@ namespace SaveNet {
 				this->generateFileToolStripMenuItem,
 					this->deleteFileToolStripMenuItem, this->createFileToolStripMenuItem
 			});
-			this->fileToolMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->fileToolMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->fileToolMenu->Name = L"fileToolMenu";
-			this->fileToolMenu->Size = System::Drawing::Size(89, 53);
+			this->fileToolMenu->Size = System::Drawing::Size(97, 54);
 			this->fileToolMenu->Text = L"File";
 			// 
 			// generateFileToolStripMenuItem
 			// 
 			this->generateFileToolStripMenuItem->Name = L"generateFileToolStripMenuItem";
-			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(370, 58);
 			this->generateFileToolStripMenuItem->Text = L"Generate file";
 			this->generateFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generateFileToolStripMenuItem_Click);
 			// 
 			// deleteFileToolStripMenuItem
 			// 
 			this->deleteFileToolStripMenuItem->Name = L"deleteFileToolStripMenuItem";
-			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(370, 58);
 			this->deleteFileToolStripMenuItem->Text = L"Delete file";
 			this->deleteFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFileToolStripMenuItem_Click);
 			// 
 			// createFileToolStripMenuItem
 			// 
 			this->createFileToolStripMenuItem->Name = L"createFileToolStripMenuItem";
-			this->createFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
+			this->createFileToolStripMenuItem->Size = System::Drawing::Size(370, 58);
 			this->createFileToolStripMenuItem->Text = L"Create file";
 			this->createFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::createFileToolStripMenuItem_Click);
 			// 
@@ -349,37 +349,37 @@ namespace SaveNet {
 				this->decryptViewSub,
 					this->encryptViewSub, this->clearYesSub, this->clearWriteOnSub
 			});
-			this->shortcutsMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->shortcutsMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->shortcutsMenu->Name = L"shortcutsMenu";
-			this->shortcutsMenu->Size = System::Drawing::Size(174, 53);
+			this->shortcutsMenu->Size = System::Drawing::Size(198, 54);
 			this->shortcutsMenu->Text = L"Shortcuts";
 			// 
 			// decryptViewSub
 			// 
 			this->decryptViewSub->Name = L"decryptViewSub";
-			this->decryptViewSub->Size = System::Drawing::Size(399, 54);
+			this->decryptViewSub->Size = System::Drawing::Size(439, 58);
 			this->decryptViewSub->Text = L"Decrypt + View";
 			this->decryptViewSub->Click += gcnew System::EventHandler(this, &MyForm::decryptViewSub_Click);
 			// 
 			// encryptViewSub
 			// 
 			this->encryptViewSub->Name = L"encryptViewSub";
-			this->encryptViewSub->Size = System::Drawing::Size(399, 54);
+			this->encryptViewSub->Size = System::Drawing::Size(439, 58);
 			this->encryptViewSub->Text = L"Encrypt + View";
 			this->encryptViewSub->Click += gcnew System::EventHandler(this, &MyForm::encryptViewSub_Click);
 			// 
 			// clearYesSub
 			// 
 			this->clearYesSub->Name = L"clearYesSub";
-			this->clearYesSub->Size = System::Drawing::Size(399, 54);
+			this->clearYesSub->Size = System::Drawing::Size(439, 58);
 			this->clearYesSub->Text = L"Clear + Yes";
 			this->clearYesSub->Click += gcnew System::EventHandler(this, &MyForm::clearYesSub_Click);
 			// 
 			// clearWriteOnSub
 			// 
 			this->clearWriteOnSub->Name = L"clearWriteOnSub";
-			this->clearWriteOnSub->Size = System::Drawing::Size(399, 54);
+			this->clearWriteOnSub->Size = System::Drawing::Size(439, 58);
 			this->clearWriteOnSub->Text = L"Clear + Write On";
 			this->clearWriteOnSub->Click += gcnew System::EventHandler(this, &MyForm::clearWriteOnSub_Click);
 			// 
@@ -390,66 +390,69 @@ namespace SaveNet {
 					this->setLocalPasswordToolStripMenuItem, this->changePasswordToolStripMenuItem, this->deletePasswordToolStripMenuItem, this->backupPasswordToolStripMenuItem,
 					this->generatePasswordToolStripMenuItem
 			});
-			this->securityToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->securityToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->securityToolStripMenuItem->Name = L"securityToolStripMenuItem";
-			this->securityToolStripMenuItem->Size = System::Drawing::Size(152, 53);
+			this->securityToolStripMenuItem->Size = System::Drawing::Size(172, 54);
 			this->securityToolStripMenuItem->Text = L"Security";
 			// 
 			// snExtensionToolStripMenuItem
 			// 
 			this->snExtensionToolStripMenuItem->Name = L"snExtensionToolStripMenuItem";
-			this->snExtensionToolStripMenuItem->Size = System::Drawing::Size(432, 54);
+			this->snExtensionToolStripMenuItem->Size = System::Drawing::Size(478, 58);
 			this->snExtensionToolStripMenuItem->Text = L".sn extension";
 			this->snExtensionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::snExtensionToolStripMenuItem_Click);
 			// 
 			// setLocalPasswordToolStripMenuItem
 			// 
 			this->setLocalPasswordToolStripMenuItem->Name = L"setLocalPasswordToolStripMenuItem";
-			this->setLocalPasswordToolStripMenuItem->Size = System::Drawing::Size(432, 54);
+			this->setLocalPasswordToolStripMenuItem->Size = System::Drawing::Size(478, 58);
 			this->setLocalPasswordToolStripMenuItem->Text = L"Set local password";
 			this->setLocalPasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::setLocalPasswordToolStripMenuItem_Click);
 			// 
 			// changePasswordToolStripMenuItem
 			// 
 			this->changePasswordToolStripMenuItem->Name = L"changePasswordToolStripMenuItem";
-			this->changePasswordToolStripMenuItem->Size = System::Drawing::Size(432, 54);
+			this->changePasswordToolStripMenuItem->Size = System::Drawing::Size(478, 58);
 			this->changePasswordToolStripMenuItem->Text = L"Change password";
 			this->changePasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::changePasswordToolStripMenuItem_Click);
 			// 
 			// deletePasswordToolStripMenuItem
 			// 
 			this->deletePasswordToolStripMenuItem->Name = L"deletePasswordToolStripMenuItem";
-			this->deletePasswordToolStripMenuItem->Size = System::Drawing::Size(432, 54);
+			this->deletePasswordToolStripMenuItem->Size = System::Drawing::Size(478, 58);
 			this->deletePasswordToolStripMenuItem->Text = L"Delete password";
 			this->deletePasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deletePasswordToolStripMenuItem_Click);
 			// 
 			// backupPasswordToolStripMenuItem
 			// 
 			this->backupPasswordToolStripMenuItem->Name = L"backupPasswordToolStripMenuItem";
-			this->backupPasswordToolStripMenuItem->Size = System::Drawing::Size(432, 54);
+			this->backupPasswordToolStripMenuItem->Size = System::Drawing::Size(478, 58);
 			this->backupPasswordToolStripMenuItem->Text = L"Backup password";
 			this->backupPasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::backupPasswordToolStripMenuItem_Click);
 			// 
 			// generatePasswordToolStripMenuItem
 			// 
 			this->generatePasswordToolStripMenuItem->Name = L"generatePasswordToolStripMenuItem";
-			this->generatePasswordToolStripMenuItem->Size = System::Drawing::Size(432, 54);
+			this->generatePasswordToolStripMenuItem->Size = System::Drawing::Size(478, 58);
 			this->generatePasswordToolStripMenuItem->Text = L"Generate password";
 			this->generatePasswordToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generatePasswordToolStripMenuItem_Click);
 			// 
 			// main_combo_box
 			// 
 			this->main_combo_box->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->main_combo_box->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->main_combo_box->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->main_combo_box->Font = (gcnew System::Drawing::Font(L"Arial Unicode MS", 22));
+			this->main_combo_box->Font = (gcnew System::Drawing::Font(L"Arial Unicode MS", 19.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->main_combo_box->FormattingEnabled = true;
-			this->main_combo_box->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L".cfg", L".sn", L".ini", L".cpp" });
-			this->main_combo_box->Location = System::Drawing::Point(938, 66);
+			this->main_combo_box->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L".txt", L".cfg", L".sn", L".ini", L".cpp" });
+			this->main_combo_box->Location = System::Drawing::Point(938, 67);
 			this->main_combo_box->Name = L"main_combo_box";
-			this->main_combo_box->Size = System::Drawing::Size(147, 87);
+			this->main_combo_box->Size = System::Drawing::Size(136, 79);
 			this->main_combo_box->TabIndex = 13;
-			this->main_combo_box->Text = L".txt";
+			this->main_combo_box->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::main_combo_box_SelectedIndexChanged);
+			this->main_combo_box->SelectedIndex = 0;
 			// 
 			// MyForm
 			// 
@@ -1131,6 +1134,8 @@ private: System::Void inputMain_Enter(System::Object^ sender, System::EventArgs^
 
 	}
 
+}
+private: System::Void main_combo_box_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

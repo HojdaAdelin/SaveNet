@@ -89,8 +89,7 @@ namespace SaveNet {
 			// passCheck
 			// 
 			this->passCheck->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->passCheck->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->passCheck->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 16.125F));
 			this->passCheck->Location = System::Drawing::Point(328, 330);
 			this->passCheck->Name = L"passCheck";
 			this->passCheck->Size = System::Drawing::Size(304, 71);

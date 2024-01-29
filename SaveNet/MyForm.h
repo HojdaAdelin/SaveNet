@@ -157,7 +157,7 @@ namespace SaveNet {
 			// 
 			this->encryptBtn->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->encryptBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->encryptBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->encryptBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->encryptBtn->Location = System::Drawing::Point(19, 778);
 			this->encryptBtn->Name = L"encryptBtn";
@@ -171,8 +171,7 @@ namespace SaveNet {
 			// 
 			this->decryptBtn->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->decryptBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->decryptBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->decryptBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 13.875F));
 			this->decryptBtn->Location = System::Drawing::Point(406, 778);
 			this->decryptBtn->Name = L"decryptBtn";
 			this->decryptBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
@@ -186,8 +185,7 @@ namespace SaveNet {
 			// 
 			this->viewBtn->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->viewBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->viewBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->viewBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 13.875F));
 			this->viewBtn->Location = System::Drawing::Point(777, 778);
 			this->viewBtn->Name = L"viewBtn";
 			this->viewBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
@@ -216,8 +214,7 @@ namespace SaveNet {
 			this->writeBtn->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->writeBtn->Enabled = false;
 			this->writeBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->writeBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->writeBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 13.875F));
 			this->writeBtn->Location = System::Drawing::Point(406, 687);
 			this->writeBtn->Name = L"writeBtn";
 			this->writeBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
@@ -234,11 +231,11 @@ namespace SaveNet {
 			this->checkWrite->AccessibleRole = System::Windows::Forms::AccessibleRole::MenuPopup;
 			this->checkWrite->AutoSize = true;
 			this->checkWrite->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->checkWrite->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->checkWrite->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 16.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->checkWrite->Location = System::Drawing::Point(19, 695);
 			this->checkWrite->Name = L"checkWrite";
-			this->checkWrite->Size = System::Drawing::Size(288, 55);
+			this->checkWrite->Size = System::Drawing::Size(306, 54);
 			this->checkWrite->TabIndex = 7;
 			this->checkWrite->Text = L"Use text box";
 			this->checkWrite->UseVisualStyleBackColor = true;
@@ -248,8 +245,7 @@ namespace SaveNet {
 			// 
 			this->clearBtn->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->clearBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->clearBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->clearBtn->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 13.875F));
 			this->clearBtn->Location = System::Drawing::Point(777, 687);
 			this->clearBtn->Name = L"clearBtn";
 			this->clearBtn->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
@@ -270,7 +266,7 @@ namespace SaveNet {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1097, 53);
+			this->menuStrip1->Size = System::Drawing::Size(1097, 57);
 			this->menuStrip1->TabIndex = 12;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -283,7 +279,7 @@ namespace SaveNet {
 			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->homeToolStripMenuItem->Name = L"homeToolStripMenuItem";
-			this->homeToolStripMenuItem->Size = System::Drawing::Size(127, 49);
+			this->homeToolStripMenuItem->Size = System::Drawing::Size(127, 53);
 			this->homeToolStripMenuItem->Text = L"Home";
 			// 
 			// changeLogSub
@@ -323,27 +319,27 @@ namespace SaveNet {
 			this->fileToolMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->fileToolMenu->Name = L"fileToolMenu";
-			this->fileToolMenu->Size = System::Drawing::Size(89, 49);
+			this->fileToolMenu->Size = System::Drawing::Size(89, 53);
 			this->fileToolMenu->Text = L"File";
 			// 
 			// generateFileToolStripMenuItem
 			// 
 			this->generateFileToolStripMenuItem->Name = L"generateFileToolStripMenuItem";
-			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->generateFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
 			this->generateFileToolStripMenuItem->Text = L"Generate file";
 			this->generateFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generateFileToolStripMenuItem_Click);
 			// 
 			// deleteFileToolStripMenuItem
 			// 
 			this->deleteFileToolStripMenuItem->Name = L"deleteFileToolStripMenuItem";
-			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->deleteFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
 			this->deleteFileToolStripMenuItem->Text = L"Delete file";
 			this->deleteFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFileToolStripMenuItem_Click);
 			// 
 			// createFileToolStripMenuItem
 			// 
 			this->createFileToolStripMenuItem->Name = L"createFileToolStripMenuItem";
-			this->createFileToolStripMenuItem->Size = System::Drawing::Size(359, 54);
+			this->createFileToolStripMenuItem->Size = System::Drawing::Size(340, 54);
 			this->createFileToolStripMenuItem->Text = L"Create file";
 			this->createFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::createFileToolStripMenuItem_Click);
 			// 
@@ -356,7 +352,7 @@ namespace SaveNet {
 			this->shortcutsMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->shortcutsMenu->Name = L"shortcutsMenu";
-			this->shortcutsMenu->Size = System::Drawing::Size(174, 49);
+			this->shortcutsMenu->Size = System::Drawing::Size(174, 53);
 			this->shortcutsMenu->Text = L"Shortcuts";
 			// 
 			// decryptViewSub
@@ -397,7 +393,7 @@ namespace SaveNet {
 			this->securityToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->securityToolStripMenuItem->Name = L"securityToolStripMenuItem";
-			this->securityToolStripMenuItem->Size = System::Drawing::Size(152, 49);
+			this->securityToolStripMenuItem->Size = System::Drawing::Size(152, 53);
 			this->securityToolStripMenuItem->Text = L"Security";
 			// 
 			// snExtensionToolStripMenuItem
@@ -444,14 +440,14 @@ namespace SaveNet {
 			// 
 			// main_combo_box
 			// 
+			this->main_combo_box->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->main_combo_box->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->main_combo_box->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->main_combo_box->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 22));
 			this->main_combo_box->FormattingEnabled = true;
 			this->main_combo_box->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L".cfg", L".sn", L".ini", L".cpp" });
 			this->main_combo_box->Location = System::Drawing::Point(938, 66);
 			this->main_combo_box->Name = L"main_combo_box";
-			this->main_combo_box->Size = System::Drawing::Size(147, 81);
+			this->main_combo_box->Size = System::Drawing::Size(147, 76);
 			this->main_combo_box->TabIndex = 13;
 			this->main_combo_box->Text = L".txt";
 			// 
@@ -459,7 +455,7 @@ namespace SaveNet {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(1097, 879);
 			this->Controls->Add(this->main_combo_box);
 			this->Controls->Add(this->clearBtn);

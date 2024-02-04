@@ -17,6 +17,6 @@ void creator() {
 
 void ChangeLog() {
 
-	MessageBox::Show("Version 1.3.0 Preview\n\n- Fixed creating file extension\n- New info box for generated file\n-Interface update", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	MessageBox::Show("\tVersion: 1.5.0\n\nChanges:\n\n- New password form\n- New main interface color\n- New dropdown color\n- New main font\n- New second text box font\n- New change log view\n\nFixed:\n\n- File extension combo box items\n- Main buttons", "SaveNet");
 
 }

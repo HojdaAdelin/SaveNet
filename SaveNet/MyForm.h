@@ -558,7 +558,7 @@ namespace SaveNet {
 #pragma endregion
 	private: System::Void encryptBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		if (String::IsNullOrEmpty(inputMain->Text)) {
+		if (String::IsNullOrEmpty(inputMain->Text) || inputMain->Text == "File name...") {
 
 			MessageBox::Show("Enter the file name first!", "Save Net");
 			return;
@@ -577,7 +577,7 @@ namespace SaveNet {
 	}
 	private: System::Void decryptBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		
-		if (String::IsNullOrEmpty(inputMain->Text)) {
+		if (String::IsNullOrEmpty(inputMain->Text) || inputMain->Text == "File name...") {
 
 			MessageBox::Show("Enter the file name first!", "Save Net");
 			return;
@@ -596,7 +596,7 @@ namespace SaveNet {
 	}
 	private: System::Void viewBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		if (String::IsNullOrEmpty(inputMain->Text)) {
+		if (String::IsNullOrEmpty(inputMain->Text) || inputMain->Text == "File name...") {
 
 			MessageBox::Show("Enter the file name first!", "Save Net");
 			return;
@@ -652,20 +652,20 @@ namespace SaveNet {
 		std::string getTextFile_convert = ConvertString(getTextFile);
 		std::string getContentToWrite_convert = ConvertString(getContentToWrite);
 
-		if (String::IsNullOrEmpty(getTextFile)) {
+		if (String::IsNullOrEmpty(getTextFile) || getTextFile == "File name...") {
 
-			MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("Enter the name of the file!", "SaveNet");
 
 		}
 		else if (String::IsNullOrEmpty(getContentToWrite)) {
 
-			MessageBox::Show("Enter some text in 2nd textbox to process!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("Enter some text in 2nd textbox to process!", "SaveNet");
 
 		}
 		else {
 
 			WriteToTextFile(getTextFile_convert, getContentToWrite_convert);
-			MessageBox::Show("Text writed!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("Text writed!", "SaveNet");
 
 		}
 
@@ -675,9 +675,9 @@ namespace SaveNet {
 		String^ filename = inputMain->Text;
 		std::string filename_convert = ConvertString(filename);
 
-		if (String::IsNullOrEmpty(filename)) {
+		if (String::IsNullOrEmpty(filename) || filename == "File name...") {
 
-			MessageBox::Show("Enter the name of the file!", "SaveNet", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("Enter the name of the file!", "SaveNet");
 
 		}
 		else {

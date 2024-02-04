@@ -199,7 +199,7 @@ namespace SaveNet {
 			// 
 			this->secondText->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->secondText->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->secondText->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.125F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->secondText->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->secondText->Location = System::Drawing::Point(19, 162);
 			this->secondText->Multiline = true;
@@ -266,7 +266,7 @@ namespace SaveNet {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1097, 58);
+			this->menuStrip1->Size = System::Drawing::Size(1097, 62);
 			this->menuStrip1->TabIndex = 12;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -279,7 +279,7 @@ namespace SaveNet {
 			this->homeToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->homeToolStripMenuItem->Name = L"homeToolStripMenuItem";
-			this->homeToolStripMenuItem->Size = System::Drawing::Size(141, 54);
+			this->homeToolStripMenuItem->Size = System::Drawing::Size(141, 58);
 			this->homeToolStripMenuItem->Text = L"Home";
 			// 
 			// changeLogSub
@@ -319,7 +319,7 @@ namespace SaveNet {
 			this->fileToolMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->fileToolMenu->Name = L"fileToolMenu";
-			this->fileToolMenu->Size = System::Drawing::Size(97, 54);
+			this->fileToolMenu->Size = System::Drawing::Size(97, 58);
 			this->fileToolMenu->Text = L"File";
 			// 
 			// generateFileToolStripMenuItem
@@ -352,7 +352,7 @@ namespace SaveNet {
 			this->shortcutsMenu->Font = (gcnew System::Drawing::Font(L"Segoe UI", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->shortcutsMenu->Name = L"shortcutsMenu";
-			this->shortcutsMenu->Size = System::Drawing::Size(198, 54);
+			this->shortcutsMenu->Size = System::Drawing::Size(198, 58);
 			this->shortcutsMenu->Text = L"Shortcuts";
 			// 
 			// decryptViewSub
@@ -393,7 +393,7 @@ namespace SaveNet {
 			this->securityToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 13.875F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->securityToolStripMenuItem->Name = L"securityToolStripMenuItem";
-			this->securityToolStripMenuItem->Size = System::Drawing::Size(172, 54);
+			this->securityToolStripMenuItem->Size = System::Drawing::Size(172, 58);
 			this->securityToolStripMenuItem->Text = L"Security";
 			// 
 			// snExtensionToolStripMenuItem
@@ -447,12 +447,12 @@ namespace SaveNet {
 				static_cast<System::Byte>(0)));
 			this->main_combo_box->FormattingEnabled = true;
 			this->main_combo_box->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L".txt", L".cfg", L".sn", L".ini", L".cpp" });
-			this->main_combo_box->Location = System::Drawing::Point(938, 67);
+			this->main_combo_box->Location = System::Drawing::Point(938, 66);
+			this->main_combo_box->Text = ".txt";
 			this->main_combo_box->Name = L"main_combo_box";
 			this->main_combo_box->Size = System::Drawing::Size(136, 79);
 			this->main_combo_box->TabIndex = 13;
 			this->main_combo_box->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::main_combo_box_SelectedIndexChanged);
-			this->main_combo_box->SelectedIndex = 0;
 			// 
 			// MyForm
 			// 
